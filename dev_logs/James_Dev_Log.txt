@@ -1,0 +1,26 @@
+﻿StockOMatic 3000 Development Log
+Student: James Roffey
+Student ID: 100939557
+
+
+October 3rd, 2017
+* Created FoodItem class in Java with following variables and methods:
+   * Variables
+      * name (String) [For product name]
+      * quantity (int) [For product quantity]
+      * month (int) [For expiry date month]
+      * day (int) [For expiry date day]
+      * year (int) [For expiry date year]
+   * Methods
+      * FoodItem(), default constructor for initializing object
+      * FoodItem(String name, int quantity, int month, int day, int year), constructor that initializes object and sets all variables.
+      * void setName(), sets product name.
+      * String getName(), returns product name.
+      * void setQuantity(), sets product quantity.
+      * int  getQuantity(), returns product quantity.
+      * void setMonth(), sets product expiry date month
+      * Int getMonth(), returns expiry date month [as an integer, for example 1 for January]
+      * void setDay(), sets product expiry date day.
+      * int getDay(), returns product expiry date day.
+      * void setYear(), sets product expiry date year.
+      * int getYear(), returns product expiry date year.
