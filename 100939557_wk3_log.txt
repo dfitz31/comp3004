@@ -1,4 +1,3 @@
-﻿StockOMatic 3000 Development Log
 Student: James Roffey
 Student ID: 100939557
 
