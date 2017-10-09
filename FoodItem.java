@@ -5,30 +5,37 @@ public class FoodItem {
   
  //Class variables
  String name; //Item Name
+ String units; //Takes string for units used to measure quantity of food item, this is mostly optional and not really required for function
+ 
  int quantity; //Item Quantity
  int month; //Expiry Date Month
  int day; //Expiry Date Day
  int year; //Expiry Date Year
+ int priorityCode; //Code to rate how close an item is getting to its expiry date or to being used up
   
  
  //Default Constructor to initialize variables
   public FoodItem() {
     
     this.name = "";
+    this.units = "";
     this.quantity = 0;
     this.month = 0;
     this.day = 0;
     this.year = 0;
+    this.priorityCode = 3;
   }
   
   //Constructor to create FoodItem and set all class variables 
-  public FoodItem(String name, int quantity, int month, int day, int year){
+  public FoodItem(String name, String units, int quantity, int month, int day, int year, int priorityCode){
   
     this.name = name;
+    this.units = units;
     this.quantity = quantity;
     this.month = month;
     this.day = day;
     this.year = year;
+    this.priorityCode = priorityCode;
   }
   
   //Name setter
@@ -41,6 +48,17 @@ public class FoodItem {
   public String getName(String name){
     
    return this.name;
+  }
+  
+  //Units setter
+  public void setUnits(String units){
+    this.units = units;
+  }
+  
+  //Units getter
+  
+  public String getUnits(){
+    return this.units;
   }
   
   //Quantity setter
@@ -89,11 +107,55 @@ public class FoodItem {
     
     return this.year;
   }
-    
-    
-    
   
-
+  //Priority Code setter
   
+  public void setPriorityCode(int priorityCode){
+    this.priorityCode = priorityCode;
+  }
   
+  //Priority Code getter
+  
+  public int getPriorityCode(){
+    return this.priorityCode;
+  }
+  
+  //Method to print out FoodItem information
+  public void printFI(){
+    
+    System.out.println("Item name: " + this.name);
+    System.out.println("Quantity: " + this.quantity + " " + this.units);
+    System.out.println("Expiry date [MM/DD/YYYY]: " + this.month + "." + this.day + "." + this.year);
+    System.out.println("Priority Code: " + this.priorityCode);
+    
+  }
+  
+  //Method to reduce quantity by a specified value, note that currently it is only very basic
+  public void reduceQuantity(int amountUsed){
+    
+    if(amountUsed > this.quantity){
+      System.out.println("Amount used cannot be greater than quantity of item (" + this.quantity + " " + this.units + "), please enter a valid number.");
+    }
+    else{
+      this.quantity = this.quantity - amountUsed;
+    }
+    
+  }
+  
+  public static void main(String args[]){
+   
+    FoodItem testItem = new FoodItem();
+    
+    testItem.setName("Milk");
+    testItem.setUnits("mL");
+    testItem.setQuantity(2000);
+    testItem.setYear(2017);
+    testItem.setDay(12);
+    testItem.setMonth(10);
+    testItem.setPriorityCode(3);
+    
+    testItem.printFI();
+    
+  }
+      
 }
