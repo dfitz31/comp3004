@@ -1,12 +1,17 @@
 import java.util.*
 
 public class FoodList{
+	private int size;
 	private ArrayList<FoodItem> foodItems;
 	
-	public FoodList(){}
+	public FoodList(){
+		foodItems = new ArrayList<FoodItem>;
+		size = 0;
+	}
 	
 	public FoodList(ArrayList foodItems){
 		this.foodItems = foodItems;
+		size = this.foodItems.size();
 	}
 	
 	public FoodItem getItem(int itemNum){

@@ -1,0 +1,6 @@
+Week 4 (Oct 9th-13th)
+-    Began coding
+-    Created the following classes
+     -Control.java
+     -Recipe.java
+     -FoodList.java
