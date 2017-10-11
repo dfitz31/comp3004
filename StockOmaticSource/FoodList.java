@@ -1,7 +1,7 @@
 import java.util.*
 
 public class FoodList{
-	private int size;
+	private int size;//number of items in the list
 	private ArrayList<FoodItem> foodItems;
 	
 	public FoodList(){
@@ -9,22 +9,41 @@ public class FoodList{
 		size = 0;
 	}
 	
+	//constructor using previous food list
 	public FoodList(ArrayList foodItems){
 		this.foodItems = foodItems;
 		size = this.foodItems.size();
 	}
 	
+	//gets item using a number
 	public FoodItem getItem(int itemNum){
 		foodItems.get(itemNum);
 	}
-	public FoodItem getItem(FoodItem item){
-		foodItems.get(item);
-	}
+	
+	//gets the whole list of food items
 	public ArrayList getItems(){
 		return foodItems;
 	}
+	
+	//adds an item
 	public void addItem(FoodItem item){
 		foodItems.add(item)
 		Collections.sort(foodItems);
+		setSize();
+	}
+	//removes by item
+	public void removeItem(FoodItem item){
+		foodItems.remove(item);
+		setSize();
+	}
+	
+	//removes by position in the list
+	public void removeItem(int index){
+		foodItems.remove(index);
+		setSize();
+	}
+	
+	private void setSize(){
+		size = foodItems.size();
 	}
 }
