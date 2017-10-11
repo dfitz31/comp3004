@@ -1,5 +1,3 @@
-#include FoodItem
-
 public class Recipe{
 	private FoodList ingredients;
 	private ArrayList<String> instructions;
