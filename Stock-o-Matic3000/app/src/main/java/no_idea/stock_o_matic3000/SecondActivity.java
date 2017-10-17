@@ -2,7 +2,6 @@ package no_idea.stock_o_matic3000;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,20 +9,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class SecondActivity extends Activity {
 
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second);
 
         listView = (ListView)findViewById(R.id.list);
 
-        String[] values = new String[] { "View Items",
-                "Add Meal",
-                "Generate List"
+        String[] values = new String[] { "You made it",
+                "Great",
+                "Job"
 
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -43,13 +42,12 @@ public class MainActivity extends Activity {
                 // ListView Clicked item value
                 String  itemValue    = (String) listView.getItemAtPosition(position);
 
-                // Show Alert
+                //Show Alert
+               Toast.makeText(getApplicationContext(),
+                        "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
+                       .show();
 
 
-                Intent newActivity = new Intent(MainActivity.this, SecondActivity.class);
-                startActivity(newActivity);
-
-                // if pos 0 calll view items
 
             }
 
