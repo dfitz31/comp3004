@@ -46,4 +46,16 @@ public class FoodList{
 	private void setSize(){
 		size = foodItems.size();
 	}
+	public String toString(){
+		String toStr;
+		if(size == 0){
+			return "No Food";
+		}
+		else{
+			for(int i = 0; i < size; i++){
+				toStr = toStr + foodItems.get(i).getName();
+				toStr = toStr + '\n';
+			}
+		}
+	}
 }

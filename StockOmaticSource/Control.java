@@ -3,7 +3,10 @@ public class Control{
 	private RecipeList recipe;
 	
 	public Control(){
-		
+		foods = new FoodList;
+		recipes = new RecipeList;
 	}
 	
+	public void 
+
 }

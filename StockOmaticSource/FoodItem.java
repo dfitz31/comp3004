@@ -33,60 +33,51 @@ public class FoodItem {
   
   //Name setter
   public void setName(String name){
- 
     this.name = name;
   }
   
   //Name getter
-  public String getName(String name){
-    
-   return this.name;
+  public String getName(){
+	return this.name;
   }
   
   //Quantity setter
   public void setQuantity(int quantity){
-   this.quantity = quantity;
+	this.quantity = quantity;
   }
   
   //Quantity getter
   public int getQuantity(){
-  
     return this.quantity;
   }
   
   //Month setter
   public void setMonth(int month){
-    
     this.month = month;
   }
   
   //Month getter
   public int getMonth(){
-    
     return this.month;
   }
   
   //Day setter
   public void setDay(int day){
-    
     this.day = day;
   }
   
   //Day getter
   public int getDay(){
-    
     return this.day;
   }
   
   //Year setter
   public void setYear(int year){
-    
     this.year = year;
   }
   
   //Year getter
   public int getYear(){
-    
     return this.year;
   }
     
