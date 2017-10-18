@@ -53,9 +53,11 @@ public class FoodList{
    return "No Food";
   }
   else{
+      int counter = 1;
       for(FoodItem item : foodItems){
-        toStr = toStr + item.getName();
+        toStr = toStr + counter + ". " + item.getName() + " " + item.getQuantity() + " " + item.getDate();
         toStr = toStr + '\n';
+        counter++;
    }
   }
   return toStr;

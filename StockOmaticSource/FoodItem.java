@@ -38,12 +38,12 @@ public class FoodItem {
   
   //Name getter
   public String getName(){
-	return this.name;
+ return this.name;
   }
   
   //Quantity setter
   public void setQuantity(int quantity){
-	this.quantity = quantity;
+ this.quantity = quantity;
   }
   
   //Quantity getter
@@ -80,7 +80,10 @@ public class FoodItem {
   public int getYear(){
     return this.year;
   }
-    
+  
+  public String getDate(){
+      return getDay() + "/" + getMonth() + "/" + getYear();
+  }
     
     
   
