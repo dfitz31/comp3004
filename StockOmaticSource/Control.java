@@ -1,12 +1,12 @@
 public class Control{
-	private FoodList food;
-	private RecipeList recipe;
-	
-	public Control(){
-		foods = new FoodList;
-		recipes = new RecipeList;
-	}
-	
-	public void 
+ private FoodList foods;
+ private RecipeList recipes;
+ 
+ public Control(){
+  foods = new FoodList();
+  recipes = new RecipeList();
+ }
+ 
+ //public void 
 
 }
