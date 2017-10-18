@@ -1,0 +1,7 @@
+﻿Oct 8th - Oct 14th
+
+
+* Updated FoodItem class by adding more methods to support app functionality and ease of programming.
+* Performed successful tests on FoodItem class.
+* Learned about the basics of app design in Android studio.
+        (Total time: 4 - 5 hours)
