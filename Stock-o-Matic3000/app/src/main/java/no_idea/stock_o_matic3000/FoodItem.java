@@ -1,6 +1,5 @@
-/**
- * Auto Generated Java Class.
- */
+package no_idea.stock_o_matic3000;
+
 public class FoodItem {
   
  //Class variables

@@ -1,3 +1,5 @@
+package no_idea.stock_o_matic3000;
+
 public class Control{
  public FoodList foods;
  private RecipeList recipes;

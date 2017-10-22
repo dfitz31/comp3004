@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 public class BaseActivity extends Activity {
 
+    protected static Control control;
 
 
 
