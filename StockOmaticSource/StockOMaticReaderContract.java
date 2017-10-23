@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package android.database.sqlite;
 
 import android.provider.BaseColumns;
@@ -52,3 +53,27 @@ public final class StockOMaticReaderContract {
     }
 }
 
+=======
+package android.database.sqlite;
+
+import android.provider.BaseColumns;
+
+/**
+ * Description: Schema and contract for SQLite database for application
+ */
+
+public final class StockOMaticReaderContract {
+
+    private StockOMaticReaderContract() {}
+
+    public static class StockOMaticEntry implements BaseColumns {
+        public static final String TABLE_NAME = "Food List";
+        public static final String COLUMN_NAME_ITEM = "Item Name";
+        public static final String COLUMN_NAME_QUANITITY = "Quantity";
+        public static final String COLUMN_NAME_MONTH = "Month";
+        public static final String COLUMN_NAME_DAY = "Day";
+        public static final String COLUMN_NAME_YEAR = "Year";
+    }
+}
+
+>>>>>>> dd6a8d2d8c3818a42490e33f6d7bdacef8194955
