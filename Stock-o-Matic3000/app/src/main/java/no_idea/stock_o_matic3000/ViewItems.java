@@ -44,6 +44,7 @@ public class ViewItems extends BaseActivity {
 
                 Intent newActivity = new Intent(ViewItems.this, AddItem.class);
                 startActivity(newActivity);
+                finish();
 
 
 
