@@ -1,0 +1,9 @@
+﻿October 15th - October 21st
+
+
+* Less work this week due to work for other courses
+* Learned how to emulate app in Android Studio for testing purposes
+* Further division of labour done, goals for next week determined
+
+
+Total Time: 3 hours
