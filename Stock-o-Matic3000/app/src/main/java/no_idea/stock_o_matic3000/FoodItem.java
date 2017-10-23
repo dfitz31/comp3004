@@ -3,16 +3,15 @@ package no_idea.stock_o_matic3000;
 public class FoodItem {
   
  //Class variables
- String name; //Item Name
- int quantity; //Item Quantity
- int month; //Expiry Date Month
- int day; //Expiry Date Day
- int year; //Expiry Date Year
+ private String name;   //Item Name
+ private int quantity;  //Item Quantity
+ private int month;     //Expiry Date Month
+ private int day;       //Expiry Date Day
+ private int year;      //Expiry Date Year
   
  
  //Default Constructor to initialize variables
   public FoodItem() {
-    
     this.name = "";
     this.quantity = 0;
     this.month = 0;
@@ -21,7 +20,7 @@ public class FoodItem {
   }
   
   //Constructor to create FoodItem and set all class variables 
-  public FoodItem(String name, int quantity, int month, int day, int year){
+  public FoodItem(String name, int quantity, int day, int month, int year){
   
     this.name = name;
     this.quantity = quantity;
@@ -83,10 +82,5 @@ public class FoodItem {
   public String getDate(){
       return getDay() + "/" + getMonth() + "/" + getYear();
   }
-    
-    
-  
-
-  
   
 }

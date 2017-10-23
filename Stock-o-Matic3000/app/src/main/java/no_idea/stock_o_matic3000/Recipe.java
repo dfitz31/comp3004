@@ -12,7 +12,7 @@ import java.util.*;
 public class Recipe{
  private FoodList ingredients;
  private ArrayList<String> instructions;
- 
+ private int numIngredients;
  /*********************************
   *                               *
   *       Constructors            *
@@ -44,31 +44,32 @@ public class Recipe{
  
  //adds specified ingredient
  public void addIngredient(FoodItem ingredient){
-  ingredients.addItem(ingredient);
+     ingredients.addItem(ingredient);
+     numIngredients = ingredients.getSize();
  }
  
  //removes specified ingredient
  public void removeIngredient(FoodItem ingredient){
-  ingredients.removeItem(ingredient);
+     ingredients.removeItem(ingredient);
  }
  
  //removes ingredient specified by index
  public void removeIngredient(int itemNum){
-  ingredients.removeItem(itemNum);
+     ingredients.removeItem(itemNum);
  }
  
  //adds an instruction
  public void addInstruction(String instruction){
-  instructions.add(instruction);
+     instructions.add(instruction);
  }
  
  //gets all instructions
  public ArrayList getInstructions(){
-  return instructions;
+     return instructions;
  }
  
  //gets specific instruction
  public String getInstruction(int instrucNum){
-  return instructions.get(instrucNum);
+     return instructions.get(instrucNum);
  }
 }

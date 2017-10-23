@@ -21,14 +21,11 @@ public class ViewItems extends BaseActivity {
 
         listView = (ListView)findViewById(R.id.list);
 
-        String[] values = new String[] {
-                "These",
-                "Should",
-                "Be",
-                "Meals",
+        String[] values = new String[]{"this", "should", "be", "meals"};
+
+        values = control.listFoodString();
 
 
-        };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
