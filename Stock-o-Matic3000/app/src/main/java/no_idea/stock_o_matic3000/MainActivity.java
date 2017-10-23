@@ -54,7 +54,7 @@ public class MainActivity extends BaseActivity {
                 // Show Alert
 
 
-                Intent newActivity = new Intent(MainActivity.this, ViewItems.class);
+                Intent newActivity = new Intent(MainActivity.this, AddItem.class);
                 startActivity(newActivity);
 
                 // if pos 0 calll view items
