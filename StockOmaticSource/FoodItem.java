@@ -1,6 +1,9 @@
-/**
- * Auto Generated Java Class.
- */
+/******************************************************************************
+  * Class FoodItem
+  * Description: This class is designed to represent a user's food items in 
+  * their food list, shopping list and recipe list.
+  * 
+******************************************************************************/
 public class FoodItem {
   
  //Class variables
