@@ -25,6 +25,8 @@ public class ViewItems extends BaseActivity {
 
         values = control.listFoodString();
 
+       final int length = values.length;
+
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -37,11 +39,16 @@ public class ViewItems extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-
-
-                Intent newActivity = new Intent(ViewItems.this, AddItem.class);
+                Intent newActivity;
+                int itemPosition     = position;
+                if (itemPosition == 0) {
+                    newActivity = new Intent(ViewItems.this, AddItem.class);
+                }
+                else {
+                    newActivity = new Intent(ViewItems.this, EditItem.class);
+                }
                 startActivity(newActivity);
-                finish();
+                //finish();
 
 
 

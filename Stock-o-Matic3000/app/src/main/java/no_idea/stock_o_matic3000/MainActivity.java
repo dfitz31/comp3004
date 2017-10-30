@@ -15,10 +15,10 @@ public class MainActivity extends BaseActivity {
 
     ListView listView;
     int count = 0;
-    String[] values = new String[] { "View Items",
-            "Add Meal",
-            "Generate List,",
-            count + ""
+    String[] values = new String[] { "Items",
+            "Meal List",
+            "Generate List"
+
 
 
     };
@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.v("CREATION","Created Bitch");
+
 
         listView = (ListView)findViewById(R.id.list);
 
@@ -52,11 +52,18 @@ public class MainActivity extends BaseActivity {
                 String  itemValue    = (String) listView.getItemAtPosition(position);
 
                 // Show Alert
+                if (itemPosition == 1){
 
+                    Intent newActivity = new Intent(MainActivity.this, ViewMeals.class);
+                    startActivity(newActivity);
 
-                Intent newActivity = new Intent(MainActivity.this, ViewItems.class);
-                startActivity(newActivity);
+                }
 
+                else {
+
+                    Intent newActivity = new Intent(MainActivity.this, ViewItems.class);
+                    startActivity(newActivity);
+                }
                 // if pos 0 calll view items
 
             }
@@ -65,13 +72,7 @@ public class MainActivity extends BaseActivity {
     }
     protected void onStart(){
         super.onStart();
-        Log.v("CREATION","Start v1 " + count);
-        count++;
-        values = new String[] { "View Items",
-                "Add Meal",
-                "Generate List,",
-                count + ""
-        };
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
         listView.setAdapter(adapter);
@@ -80,29 +81,26 @@ public class MainActivity extends BaseActivity {
 
     protected void onStop(){
         super.onStop();
-        Log.v("CREATION","Stop v1 " + count);
-        count = count + 1;
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.v("CREATION","Pause v1 " + count);
-        count = count + 1;
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.v("CREATION","Destory v1 " + count);
 
-        count = count + 1;
+
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.v("CREATION","Restart v1 " + count);
+
 
         count = count + 1;
     }
