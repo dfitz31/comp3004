@@ -2,17 +2,20 @@ package no_idea.stock_o_matic3000;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class BaseActivity extends Activity {
 
     protected static Control control = new Control();
+    DatabaseHelper db;
 
 
 
 
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new DatabaseHelper(getApplicationContext());
 
 
 

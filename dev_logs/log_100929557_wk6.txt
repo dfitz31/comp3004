@@ -1,0 +1,12 @@
+﻿Oct. 22nd - Oct. 28th
+
+
+* Began to study SQL basics for the purpose of using SQLite databases to save app data.
+* Ran tests on App using Android Emulator
+* Developed multiple Database related classes, ultimately narrowing down to the DatabaseHelper class in order to save app data.
+* Discussed Database functionality with team members.
+* Discussed what to present for App Demo.
+* Ensured that Database Helper class compilation could be completed.
+
+
+Total Time: 8 Hours

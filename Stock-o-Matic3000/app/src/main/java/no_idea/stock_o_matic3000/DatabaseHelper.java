@@ -1,12 +1,9 @@
-package android.database.sqlite;
-
-
-import no_idea.stock_o_matic3000.*;
+package no_idea.stock_o_matic3000;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List<E>;
+import java.util.List;
 import java.util.Locale;
 
 import android.content.ContentValues;
@@ -89,7 +86,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public long createFoodList(FoodItem foodItem, long[] tag_ids){
+    public long createFoodListEntry(FoodItem foodItem, long[] tag_ids){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -99,6 +96,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_FOOD_LIST_DAY, foodItem.getDay());
         values.put(KEY_FOOD_LIST_YEAR, foodItem.getYear());
         values.put(KEY_CREATED_AT, getDateTime());
+
+        long singleItem = db.insert(TABLE_FOOD_LIST, null, values);
+
+        return singleItem;
     }
 
     //Get a FoodItem from the FoodList
