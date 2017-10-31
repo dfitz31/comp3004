@@ -1,6 +1,9 @@
 package no_idea.stock_o_matic3000;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -47,6 +50,29 @@ ListView listView;
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
 
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Intent newActivity;
+                int itemPosition     = position;
+                if (itemPosition == 0) {
+                    newActivity = new Intent(AddMeal.this, AddIngredient.class);
+                }
+                else {
+                    control.setHolder(control.getFoodItem(position - 1));
+                    newActivity = new Intent(AddMeal.this, EditIngredient.class);
+                }
+                startActivity(newActivity);
+                //finish();
+            }
+
+        });
+
+
+
 
     }
 
