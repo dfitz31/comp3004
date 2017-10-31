@@ -3,11 +3,13 @@ package no_idea.stock_o_matic3000;
 public class Control{
     private static FoodList foods;
     private RecipeList recipes;
+    private FoodItem holder;
  
     public Control(){
         foods = new FoodList();
         recipes = new RecipeList();
         generate();
+        holder = null;
     }
  
     public void generate(){
@@ -37,10 +39,7 @@ public class Control{
         a.setName("Butter Steak");
         a.addIngredient(steak);
         a.addIngredient(butter);
-       /* a.addInstruction("Melt butter in pan");
-        a.addInstruction("Fry steak in buttery pan");
-        a.addInstruction("Do the fancy steak stuff like letting it rest or whatever");
-        a.addInstruction("Eat the steak you carnivore");*/
+
 
         Recipe b = new Recipe();
         b.setName("Slightly Warm Apple");
@@ -48,9 +47,6 @@ public class Control{
         b.addIngredient(butter);
         b.addIngredient(celery);
         b.addIngredient(tomato);
-        /*b.addInstruction("Throw out everything except the apple");
-        b.addInstruction("Microwave the apple for a small amount of time");
-        b.addInstruction("Consume your slightly warm apple");*/
     }
     // will take in a food name and expiry date and place it in the food list specified.
     public void addFood(String name, String numItem, String date){
@@ -86,6 +82,9 @@ public class Control{
     public String[] listFoodString(){
         return foods.toStringArray();
     }
+
+    public void setHolder(FoodItem newItem) { holder = newItem; }
+    public FoodItem getHolder() { return holder; }
 
  //FoodItem(String name, int quantity, int month, int day, int year)
  //public void 

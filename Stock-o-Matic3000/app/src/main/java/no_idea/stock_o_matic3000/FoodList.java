@@ -58,13 +58,14 @@ public class FoodList{
         ArrayList<String> toss = new ArrayList<>();
         String toStr[] = new String[1];
         if(size == 0){
-            return new String[]{"No Food"};
+            return new String[]{"Add Item"};
         }
         else{
             int counter = 1;
+            toss.add("Add Item");
             for(FoodItem item : foodItems){
-                toss.add(counter + ". " + item.getName() + " " + item.getQuantity() +
-                         " " + item.getDate() + '\n');
+                toss.add(item.getName() + "\n" + "Quantity: " + item.getQuantity() +
+                         " Date: " + item.getDate() + '\n');
                 counter++;
             }
         }

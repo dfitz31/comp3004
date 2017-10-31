@@ -4,6 +4,8 @@ public class FoodItem {
   
  //Class variables
  private String name;   //Item Name
+ private static int nextKey = 0;
+ private int key;
  private int quantity;  //Item Quantity
  private int month;     //Expiry Date Month
  private int day;       //Expiry Date Day
@@ -17,6 +19,8 @@ public class FoodItem {
     this.month = 0;
     this.day = 0;
     this.year = 0;
+    key = nextKey + 1;
+    nextKey++;
   }
   
   //Constructor to create FoodItem and set all class variables 
@@ -27,6 +31,8 @@ public class FoodItem {
     this.month = month;
     this.day = day;
     this.year = year;
+      key = nextKey + 1;
+      nextKey++;
   }
   
   //Name setter
@@ -68,6 +74,9 @@ public class FoodItem {
   public int getDay(){
     return this.day;
   }
+
+  //key getter
+  public int getKey() { return key;}
   
   //Year setter
   public void setYear(int year){

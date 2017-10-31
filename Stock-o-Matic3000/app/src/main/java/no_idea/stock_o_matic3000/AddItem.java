@@ -17,8 +17,6 @@ public class AddItem extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_item);
 
-
-
     }
 
 
