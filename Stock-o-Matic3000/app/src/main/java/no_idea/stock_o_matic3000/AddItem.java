@@ -64,7 +64,7 @@ public class AddItem extends BaseActivity {
         String amount = amountField.getText().toString();
         String expDate = expDateField.getText().toString();
 
-
+        control.addFood(name, amount, expDate);
 
 
 

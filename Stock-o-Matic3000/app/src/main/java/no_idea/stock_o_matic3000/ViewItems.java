@@ -41,11 +41,13 @@ public class ViewItems extends BaseActivity {
                                     int position, long id) {
                 Intent newActivity;
                 int itemPosition     = position;
+                control.setHolder(control.getFoodItem(3));
+
                 if (itemPosition == 0) {
                     newActivity = new Intent(ViewItems.this, AddItem.class);
                 }
                 else {
-                    control.setHolder(control.getFoodItem(itemPosition));
+                    System.out.println(control.getHolder().getName());
                     newActivity = new Intent(ViewItems.this, EditItem.class);
                 }
                 startActivity(newActivity);
@@ -98,6 +100,7 @@ public class ViewItems extends BaseActivity {
                     newActivity = new Intent(ViewItems.this, AddItem.class);
                 }
                 else {
+                    control.setHolder(control.getFoodItem(position - 1));
                     newActivity = new Intent(ViewItems.this, EditItem.class);
                 }
                 startActivity(newActivity);

@@ -87,6 +87,21 @@ public class FoodItem {
   public int getYear(){
     return this.year;
   }
+
+    public void parseDate(String date){
+        String[] parts = date.split("/");
+        for(int i = 0; i < parts.length; i++){
+            if(i == 0){
+                day = Integer.getInteger(parts[i]);
+            }
+            else if(i == 1){
+                month = Integer.getInteger(parts[i]);
+            }
+            else{
+                year = Integer.getInteger(parts[i]);
+            }
+        }
+    }
   
   public String getDate(){
       return getDay() + "/" + getMonth() + "/" + getYear();

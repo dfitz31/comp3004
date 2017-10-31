@@ -21,8 +21,8 @@ public class EditItem extends BaseActivity {
         final EditText expDateField = (EditText) findViewById(R.id.expDate);
 
         nameField.setText(control.getHolder().getName());
-        amountField.setText("12");
-        expDateField.setText("12/12/12");
+        amountField.setText(control.getHolder().getQuantity() + "");
+        expDateField.setText(control.getHolder().getDate());
 
 
 
