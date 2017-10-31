@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 public class AddMeal extends BaseActivity {
@@ -62,7 +63,7 @@ ListView listView;
                     newActivity = new Intent(AddMeal.this, AddIngredient.class);
                 }
                 else {
-                    control.setHolder(control.getFoodItem(position - 1));
+                    control.setHolder(control.getHolderRecipe().getItem(position - 1));
                     newActivity = new Intent(AddMeal.this, EditIngredient.class);
                 }
                 startActivity(newActivity);
@@ -77,7 +78,12 @@ ListView listView;
     }
 
     public void submit (View button){
+        final EditText nameField = (EditText) findViewById(R.id.name);
 
+        control.getHolderRecipe().setName(nameField.getText().toString());
+        control.addRecipe(control.getHolderRecipe());
+
+        finish();
 
     }
 
