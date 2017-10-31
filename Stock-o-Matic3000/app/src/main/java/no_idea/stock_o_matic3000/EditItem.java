@@ -32,7 +32,7 @@ public class EditItem extends BaseActivity {
     public void submit (View button){
 
         Context context = getApplicationContext();
-        CharSequence text = "Thing added yo";
+
         int duration = Toast.LENGTH_SHORT;
 
         final EditText nameField = (EditText) findViewById(R.id.name);
@@ -45,7 +45,7 @@ public class EditItem extends BaseActivity {
 
         control.editFood(control.getHolder(), name, amount, expDate);
 
-
+        CharSequence text = name + " was Updated";
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();

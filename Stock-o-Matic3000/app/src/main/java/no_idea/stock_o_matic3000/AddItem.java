@@ -52,9 +52,7 @@ public class AddItem extends BaseActivity {
 
     public void submit (View button){
 
-        Context context = getApplicationContext();
-        CharSequence text = "Thing added yo";
-        int duration = Toast.LENGTH_SHORT;
+
 
         final EditText nameField = (EditText) findViewById(R.id.name);
         final EditText amountField = (EditText) findViewById(R.id.amount);
@@ -66,6 +64,11 @@ public class AddItem extends BaseActivity {
 
         control.addFood(name, amount, expDate);
 
+
+        CharSequence text = name + " was Added";
+        Context context = getApplicationContext();
+
+        int duration = Toast.LENGTH_SHORT;
 
 
         Toast toast = Toast.makeText(context, text, duration);

@@ -1,5 +1,6 @@
 package no_idea.stock_o_matic3000;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class AddMeal extends BaseActivity {
 
@@ -79,9 +81,23 @@ ListView listView;
 
     public void submit (View button){
         final EditText nameField = (EditText) findViewById(R.id.name);
-
-        control.getHolderRecipe().setName(nameField.getText().toString());
+        String name = nameField.getText().toString();
+        control.getHolderRecipe().setName(name);
         control.addRecipe(control.getHolderRecipe());
+
+
+        CharSequence text = name + " meal was Added";
+        Context context = getApplicationContext();
+
+        int duration = Toast.LENGTH_SHORT;
+
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+
+
+
 
         finish();
 
