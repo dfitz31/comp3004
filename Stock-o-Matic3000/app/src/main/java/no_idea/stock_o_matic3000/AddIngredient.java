@@ -43,6 +43,11 @@ ListView listView;
                 // ListView Clicked item value
                 String itemValue = (String) listView.getItemAtPosition(position);
 
+                if (itemPosition == 0) {
+                    Intent newActivity = new Intent(AddIngredient.this, AddItem.class);
+                    startActivity(newActivity);
+                }
+
 
                 Context context = getApplicationContext();
 
