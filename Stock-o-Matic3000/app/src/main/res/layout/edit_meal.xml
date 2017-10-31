@@ -56,7 +56,7 @@
         android:id="@+id/eatButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="submit"
+        android:onClick="eat"
         android:text="Eat Meal" />
 
 

@@ -7,6 +7,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import static android.R.attr.button;
+
 public class EditMeal extends BaseActivity {
 
 
@@ -22,15 +24,14 @@ ListView listView;
 
     }
 
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         super.onResume();
         setContentView(R.layout.edit_meal);
 
-        listView = (ListView)findViewById(R.id.list);
+        listView = (ListView) findViewById(R.id.list);
 
         String[] values = control.getHolderRecipe().ingredientsToArray();
-
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -44,11 +45,10 @@ ListView listView;
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Intent newActivity;
-                int itemPosition     = position;
+                int itemPosition = position;
                 if (itemPosition == 0) {
                     newActivity = new Intent(EditMeal.this, AddIngredient.class);
-                }
-                else {
+                } else {
                     control.setHolder(control.getFoodItem(position - 1));
                     newActivity = new Intent(EditMeal.this, EditIngredient.class);
                 }
@@ -57,12 +57,21 @@ ListView listView;
             }
 
         });
+    }
 
 
+    public void submit (View button){
+
+
+    }
+
+    public void eat (View button) {
 
 
 
     }
+
+
 
 
     protected void onStart(){
