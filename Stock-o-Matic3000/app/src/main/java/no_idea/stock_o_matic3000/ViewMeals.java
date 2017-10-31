@@ -79,6 +79,7 @@ ListView listView;
                 Intent newActivity;
                 int itemPosition     = position;
                 if (itemPosition == 0) {
+                    control.setHolderRecipe(new Recipe());
                     newActivity = new Intent(ViewMeals.this, AddMeal.class);
                 }
                 else {
