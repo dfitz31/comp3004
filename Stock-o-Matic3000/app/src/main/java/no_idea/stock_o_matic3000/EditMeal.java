@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import static android.R.attr.button;
@@ -18,7 +19,8 @@ ListView listView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_meal);
-
+        final EditText nameField = (EditText) findViewById(R.id.name);
+        nameField.setText("THis is the name");
 
 
 
@@ -26,9 +28,9 @@ ListView listView;
 
     protected void onResume() {
         super.onResume();
-        super.onResume();
         setContentView(R.layout.edit_meal);
-
+        final EditText nameField = (EditText) findViewById(R.id.name);
+        nameField.setText(control.getHolderRecipe().getName());
         listView = (ListView) findViewById(R.id.list);
 
         String[] values = control.getHolderRecipe().ingredientsToArray();
@@ -61,8 +63,11 @@ ListView listView;
 
 
     public void submit (View button){
+        final EditText nameField = (EditText) findViewById(R.id.name);
 
+        control.getHolderRecipe().setName(nameField.getText().toString());
 
+        finish();
     }
 
     public void eat (View button) {
