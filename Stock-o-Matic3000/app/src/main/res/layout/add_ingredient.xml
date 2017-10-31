@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:layout_weight="0.02">
+
+        <EditText
+            android:id = "@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Amount" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_weight="0.02">
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+        </ListView>
+    </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+
+</LinearLayout>
