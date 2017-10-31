@@ -64,6 +64,10 @@ public class Recipe{
      public void setIngredientAmount(int i, int amount){
          numberOfIngredients.set(i, new Integer(amount));
      }
+
+     public int getIngredientAmount(int i){
+         return numberOfIngredients.get(i).intValue();
+     }
      //removes specified ingredient
      public void removeIngredient(FoodItem ingredient){
          ingredients.removeItem(ingredient);
@@ -77,6 +81,10 @@ public class Recipe{
 
      public String toString(){
          return name;
+     }
+
+     public FoodList getIngredients(){
+         return ingredients;
      }
 
      public String[] ingredientsToArray(){

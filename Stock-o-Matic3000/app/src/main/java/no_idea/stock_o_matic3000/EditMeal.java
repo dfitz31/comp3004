@@ -90,9 +90,10 @@ ListView listView;
     }
 
     public void eat (View button) {
-
-
-
+        final EditText amountField = (EditText) findViewById(R.id.amount);
+        int numMeals = Integer.parseInt(amountField.getText().toString());
+        control.eat(numMeals, control.getHolderRecipe());
+        finish();
     }
 
 
