@@ -51,10 +51,10 @@ ListView listView;
                 //get Amount on click of list item
                 final EditText amountField = (EditText) findViewById(R.id.amount);
                 String amount = amountField.getText().toString();
+                if (amount.equals("")){amount = "1";}
 
-                //set Holder
-                control.setHolder(control.getFoodItem(position - 1));
-
+                control.getHolderRecipe().addIngredient(control.getFoodItem(position - 1),
+                        Integer.parseInt(amount));
                 //control.addFood(name, amount, expDate);
 
                 CharSequence text= control.getHolder().getName() + " Has been added";

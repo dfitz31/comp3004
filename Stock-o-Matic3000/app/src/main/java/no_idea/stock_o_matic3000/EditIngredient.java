@@ -54,20 +54,19 @@ ListView listView;
                 String amount = amountField.getText().toString();
 
                 //set Holder
-                control.setHolder(control.getFoodItem(position - 1));
+                //control.setHolder(control.getFoodItem(position - 1));
+                String str = amountField.getText().toString();
 
+                control.getHolderRecipe().setIngredientAmount(control.getHolderRecipe().
+                        getIngredientIndex(control.getHolder()), Integer.parseInt(str));
                 //control.addFood(name, amount, expDate);
 
-                CharSequence text= control.getHolder().getName() + " Has been Editied";
+                CharSequence text= control.getHolder().getName() + " Has been Edited";
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
 
 
                 finish();
-
-
-
-
             }
 
         });

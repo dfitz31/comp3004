@@ -57,6 +57,13 @@ public class Recipe{
      public FoodItem getItem(int index){
          return ingredients.getItem(index);
      }
+
+     public int getIngredientIndex(FoodItem food){
+         return ingredients.getItems().indexOf(food);
+     }
+     public void setIngredientAmount(int i, int amount){
+         numberOfIngredients.set(i, new Integer(amount));
+     }
      //removes specified ingredient
      public void removeIngredient(FoodItem ingredient){
          ingredients.removeItem(ingredient);
