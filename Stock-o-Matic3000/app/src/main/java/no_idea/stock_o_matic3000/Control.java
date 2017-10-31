@@ -61,15 +61,16 @@ public class Control{
     // will take in a food name and expiry date and remove it from the food list specified.
     public void removeFood(FoodItem food){
         foods.removeItem(food);
-        //foods.saveList();
     }
 
     //adds a recipe to the list
     public void addRecipe(Recipe recipe){
         recipes.addRecipe(recipe);
-        //recipes.saveList();
      }
 
+    public FoodItem getFoodItem(int index){
+        return foods.getItem(index);
+    }
     //removes recipe by specified recipe
     public void removeRecipe(Recipe recipe){
         recipes.removeRecipe(recipe);

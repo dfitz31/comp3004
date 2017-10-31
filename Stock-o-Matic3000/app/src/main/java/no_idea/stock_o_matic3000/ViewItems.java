@@ -45,6 +45,7 @@ public class ViewItems extends BaseActivity {
                     newActivity = new Intent(ViewItems.this, AddItem.class);
                 }
                 else {
+                    control.setHolder(control.getFoodItem(itemPosition));
                     newActivity = new Intent(ViewItems.this, EditItem.class);
                 }
                 startActivity(newActivity);
