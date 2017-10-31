@@ -14,6 +14,7 @@
             android:id = "@+id/amount"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:inputType="number"
             android:hint="Amount" />
     </android.support.design.widget.TextInputLayout>
 
