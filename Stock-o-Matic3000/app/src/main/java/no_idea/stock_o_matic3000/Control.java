@@ -37,16 +37,19 @@ public class Control{
 
         Recipe a = new Recipe();
         a.setName("Butter Steak");
-        a.addIngredient(steak);
-        a.addIngredient(butter);
+        a.addIngredient(steak, 1);
+        a.addIngredient(butter, 1);
 
 
         Recipe b = new Recipe();
         b.setName("Slightly Warm Apple");
-        b.addIngredient(apple);
-        b.addIngredient(butter);
-        b.addIngredient(celery);
-        b.addIngredient(tomato);
+        b.addIngredient(apple, 1);
+        b.addIngredient(butter, 1);
+        b.addIngredient(celery, 1);
+        b.addIngredient(tomato, 1);
+
+        recipes.addRecipe(a);
+        recipes.addRecipe(b);
     }
     // will take in a food name and expiry date and place it in the food list specified.
     public void addFood(String name, String numItem, String date){
@@ -119,6 +122,9 @@ public class Control{
     }
     public String[] listFoodString(){
         return foods.toStringArray();
+    }
+    public String[] listMealString(){
+        return recipes.getRecipeNames();
     }
 
     public void setHolder(FoodItem newItem) { holder = newItem; }

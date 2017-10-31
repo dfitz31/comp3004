@@ -16,9 +16,8 @@ ListView listView;
 
         listView = (ListView)findViewById(R.id.list);
 
-        String[] values = new String[] { "Apples",
-                "Oranges",
-                "Pineapples"
+        String[] values = new String[] {
+                "Add Ingredient"
         };
 
 

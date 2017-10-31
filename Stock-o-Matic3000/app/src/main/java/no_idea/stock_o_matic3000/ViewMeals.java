@@ -19,7 +19,7 @@ ListView listView;
 
         listView = (ListView)findViewById(R.id.list);
 
-        String[] values = new String[]{"this", "should", "be", "meals"};
+        String[] values = control.listMealString();
 
         //values = control.somethingForMeals();
 
@@ -47,16 +47,9 @@ ListView listView;
                 }
                 startActivity(newActivity);
                 //finish();
-
-
-
             }
 
         });
-
-
-
-
     }
 
 
