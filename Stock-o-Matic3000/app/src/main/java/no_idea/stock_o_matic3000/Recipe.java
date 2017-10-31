@@ -53,14 +53,23 @@ public class Recipe{
      public String getName(){
          return name;
      }
+
+     public FoodItem getItem(int index){
+         return ingredients.getItem(index);
+     }
      //removes specified ingredient
      public void removeIngredient(FoodItem ingredient){
          ingredients.removeItem(ingredient);
      }
 
+
      //removes ingredient specified by index
      public void removeIngredient(int itemNum){
          ingredients.removeItem(itemNum);
+     }
+
+     public String toString(){
+         return name;
      }
 
      public String[] ingredientsToArray(){

@@ -49,7 +49,7 @@ ListView listView;
                 if (itemPosition == 0) {
                     newActivity = new Intent(EditMeal.this, AddIngredient.class);
                 } else {
-                    control.setHolder(control.getFoodItem(position - 1));
+                    control.setHolder(control.getHolderRecipe().getItem(position - 1));
                     newActivity = new Intent(EditMeal.this, EditIngredient.class);
                 }
                 startActivity(newActivity);

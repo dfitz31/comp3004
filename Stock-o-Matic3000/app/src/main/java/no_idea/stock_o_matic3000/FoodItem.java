@@ -102,6 +102,8 @@ public class FoodItem {
             }
         }
     }
+
+    public String toString(){return name;}
   
   public String getDate(){
       return getDay() + "/" + getMonth() + "/" + getYear();

@@ -21,8 +21,7 @@ ListView listView;
 
         listView = (ListView) findViewById(R.id.list);
 
-        String[] values = new String[] {
-                control.getHolder().toString()};
+        String[] values = { control.getHolder().toString()};
 
         final EditText amountField = (EditText) findViewById(R.id.amount);
         amountField.setText("");
