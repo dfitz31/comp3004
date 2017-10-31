@@ -17,23 +17,10 @@
             android:hint="Name" />
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="83dp">
-
-        <EditText
-            android:id="@+id/amount"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Amount"
-            android:inputType="number" />
-
-
-    </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="83dp"
+        android:layout_height="300dp"
         android:layout_weight="0.02">
 
         <ListView
