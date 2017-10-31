@@ -11,10 +11,10 @@ import java.util.*;
 
 public class Recipe{
      private String name;
-     private FoodList ingredients;  //list of required ingredients
-     //private ArrayList<String> instructions;    //list of instructions
+     private FoodList ingredients; //list of required ingredients
+     private ArrayList<Integer> numberOfIngredients;    //Contains the required number of each ingredient
      private Boolean hasAllItems;   //if the recipe has all the ingredients or not (f is no)
-     private int numIngredients;    //number of ingredients
+
      /*********************************
       *                               *
       *       Constructors            *
@@ -24,19 +24,16 @@ public class Recipe{
      //Empty Constructor
      public Recipe(){
       ingredients = new FoodList();
-      //instructions = new ArrayList();
+      numberOfIngredients = new ArrayList();
      }
 
-     //Constructor taking a food list
-     public Recipe(FoodList ingredients){
-      this.ingredients = ingredients;
+     //Constructor with name
+     public Recipe(String newName){
+        ingredients = new FoodList();
+        numberOfIngredients = new ArrayList();
+        name = newName;
      }
 
-     //Constructor taking food list and instruction list
-     /*public Recipe(FoodList ingredients){
-      this.ingredients = ingredients;
-      //this.instructions = instructions;
-     }*/
 
      /*********************************
       *                               *
@@ -45,9 +42,9 @@ public class Recipe{
       *********************************/
 
      //adds specified ingredient
-     public void addIngredient(FoodItem ingredient){
+     public void addIngredient(FoodItem ingredient, int num){
          ingredients.addItem(ingredient);
-         numIngredients = ingredients.getSize();
+         numberOfIngredients.add(new Integer(num));
      }
      public void setName(String newName){
          name = newName;
