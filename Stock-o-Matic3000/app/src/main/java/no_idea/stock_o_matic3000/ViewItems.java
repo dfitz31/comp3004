@@ -25,7 +25,7 @@ public class ViewItems extends BaseActivity {
 
         values = control.listFoodString();
 
-       final int length = values.length;
+
 
 
 
@@ -64,7 +64,53 @@ public class ViewItems extends BaseActivity {
         super.onStart();
 
 
+
     }
+
+    protected void onResume(){
+        super.onResume();
+        setContentView(R.layout.view_items);
+
+        listView = (ListView)findViewById(R.id.list);
+
+        String[] values = new String[]{"this", "should", "be", "meals"};
+
+        values = control.listFoodString();
+
+        final int length = values.length;
+
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Intent newActivity;
+                int itemPosition     = position;
+                if (itemPosition == 0) {
+                    newActivity = new Intent(ViewItems.this, AddItem.class);
+                }
+                else {
+                    newActivity = new Intent(ViewItems.this, EditItem.class);
+                }
+                startActivity(newActivity);
+                //finish();
+
+
+
+            }
+
+        });
+
+
+    }
+
 
     protected void onStop(){
         super.onStop();

@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity {
                 // ListView Clicked item value
                 String  itemValue    = (String) listView.getItemAtPosition(position);
 
-                // Show Alert
+
                 if (itemPosition == 1){
 
                     Intent newActivity = new Intent(MainActivity.this, ViewMeals.class);

@@ -72,8 +72,7 @@ public class AddItem extends BaseActivity {
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
-        Intent newActivity = new Intent(AddItem.this, ViewItems.class);
-        startActivity(newActivity);
+
         finish();
 
 
