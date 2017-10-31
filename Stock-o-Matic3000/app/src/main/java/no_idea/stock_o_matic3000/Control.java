@@ -1,7 +1,7 @@
 package no_idea.stock_o_matic3000;
 
 public class Control{
-    private static FoodList foods;
+    private FoodList foods;
     private RecipeList recipes;
     private FoodItem holder;
  
@@ -9,7 +9,7 @@ public class Control{
         foods = new FoodList();
         recipes = new RecipeList();
         generate();
-        holder = null;
+        holder = foods.getItem(1);
     }
  
     public void generate(){
@@ -50,12 +50,23 @@ public class Control{
     }
     // will take in a food name and expiry date and place it in the food list specified.
     public void addFood(String name, String numItem, String date){
-        int d;
-        int m;
-        int y;
-        //FoodItem food = new FoodItem(name,)
-        //foods.addItem(food);
-        //foods.saveList();
+        int d = 0;
+        int m = 0;
+        int y = 0;
+
+        String[] parts = date.split("/");
+        for(int i = 0; i < parts.length; i++){
+            if(i == 0){
+                d = Integer.parseInt(parts[i]);
+            }
+            else if(i == 1){
+                m = Integer.parseInt(parts[i]);
+            }
+            else{
+                y = Integer.parseInt(parts[i]);
+            }
+        }
+        foods.addItem(new FoodItem(name, Integer.parseInt(numItem), d, m, y));
     }
 
     // will take in a food name and expiry date and remove it from the food list specified.
@@ -67,6 +78,7 @@ public class Control{
     public void addRecipe(Recipe recipe){
         recipes.addRecipe(recipe);
      }
+
 
     public FoodItem getFoodItem(int index){
         return foods.getItem(index);
