@@ -26,6 +26,16 @@ public class RecipeList{
         return recipes.get(index);
     }
 
+    public String[] getRecipeNames(){
+        ArrayList<String> str = new ArrayList();
+        str.add("Add Meal");
+        if(!recipes.isEmpty()) {
+            for (Recipe rec : recipes) {
+                str.add(rec.getName() + "\n");
+            }
+        }
+        return str.toArray(new String[str.size()]);
+    }
     //removes a specified recipe
     public void removeRecipe(Recipe recipe){
         recipes.remove(recipe);

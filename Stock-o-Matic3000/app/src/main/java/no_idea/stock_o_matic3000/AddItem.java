@@ -17,8 +17,6 @@ public class AddItem extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_item);
 
-
-
     }
 
 
@@ -54,9 +52,7 @@ public class AddItem extends BaseActivity {
 
     public void submit (View button){
 
-        Context context = getApplicationContext();
-        CharSequence text = "Thing added yo";
-        int duration = Toast.LENGTH_SHORT;
+
 
         final EditText nameField = (EditText) findViewById(R.id.name);
         final EditText amountField = (EditText) findViewById(R.id.amount);
@@ -66,14 +62,18 @@ public class AddItem extends BaseActivity {
         String amount = amountField.getText().toString();
         String expDate = expDateField.getText().toString();
 
+        control.addFood(name, amount, expDate);
 
 
+        CharSequence text = name + " was Added";
+        Context context = getApplicationContext();
+
+        int duration = Toast.LENGTH_SHORT;
 
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
-        Intent newActivity = new Intent(AddItem.this, ViewItems.class);
-        startActivity(newActivity);
+
         finish();
 
 

@@ -11,10 +11,11 @@
         android:layout_weight="0.02">
 
         <EditText
-            android:id = "@+id/name"
+            android:id = "@+id/amount"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Name" />
+            android:inputType="number"
+            android:hint="Amount" />
     </android.support.design.widget.TextInputLayout>
 
 
@@ -32,12 +33,7 @@
 
 
 
-    <Button
-        android:id="@+id/addItemButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="submit"
-        android:text="Add Meal" />
+
 
 
 </LinearLayout>

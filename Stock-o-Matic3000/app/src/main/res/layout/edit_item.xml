@@ -2,12 +2,59 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
-    <ListView
-        android:id="@+id/list"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:layout_weight="0.02">
+
+        <EditText
+            android:id = "@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Name"
+            android:text="" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="83dp">
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Amount"
+            android:inputType="number"
+            android:text=""/>
+
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:layout_weight="0.02">
+
+        <EditText
+            android:id = "@+id/expDate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Expiry Date (DD/MM/YY)"
+            android:inputType="date"
+            android:text=""/>
+    </android.support.design.widget.TextInputLayout>
+
+
+
+    <Button
+        android:id="@+id/addItemButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-    </ListView>
+        android:onClick="submit"
+        android:text="Edit Item" />
+
 
 </LinearLayout>
