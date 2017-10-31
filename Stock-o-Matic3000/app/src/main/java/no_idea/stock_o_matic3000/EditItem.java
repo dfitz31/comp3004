@@ -42,7 +42,7 @@ public class EditItem extends BaseActivity {
         String amount = amountField.getText().toString();
         String expDate = expDateField.getText().toString();
 
-
+        control.editFood(control.getHolder(), name, amount, expDate);
 
 
 

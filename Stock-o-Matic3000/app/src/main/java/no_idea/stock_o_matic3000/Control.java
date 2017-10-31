@@ -69,6 +69,31 @@ public class Control{
         foods.addItem(new FoodItem(name, Integer.parseInt(numItem), d, m, y));
     }
 
+    public void editFood(FoodItem edits, String name, String numItem, String date){
+
+        int d = 0;
+        int m = 0;
+        int y = 0;
+
+        String[] parts = date.split("/");
+        for(int i = 0; i < parts.length; i++){
+            if(i == 0){
+                d = Integer.parseInt(parts[i]);
+            }
+            else if(i == 1){
+                m = Integer.parseInt(parts[i]);
+            }
+            else{
+                y = Integer.parseInt(parts[i]);
+            }
+        }
+        edits.setDay(d);
+        edits.setMonth(m);
+        edits.setYear(y);
+        edits.setName(name);
+        edits.setQuantity(Integer.parseInt(numItem));
+    }
+
     // will take in a food name and expiry date and remove it from the food list specified.
     public void removeFood(FoodItem food){
         foods.removeItem(food);
