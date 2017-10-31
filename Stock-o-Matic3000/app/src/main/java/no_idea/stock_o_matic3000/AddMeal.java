@@ -35,6 +35,19 @@ ListView listView;
 
     protected void onResume(){
         super.onResume();
+        setContentView(R.layout.add_meal);
+
+        listView = (ListView)findViewById(R.id.list);
+
+        String[] values = control.getHolderRecipe().ingredientsToArray();
+
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+
+        listView.setAdapter(adapter);
+
     }
 
     protected void onStart(){

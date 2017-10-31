@@ -4,6 +4,7 @@ public class Control{
     private FoodList foods;
     private RecipeList recipes;
     private FoodItem holder;
+    private Recipe holderRec;
  
     public Control(){
         foods = new FoodList();
@@ -111,6 +112,9 @@ public class Control{
     public FoodItem getFoodItem(int index){
         return foods.getItem(index);
     }
+
+    public Recipe getRecipe(int index) { return recipes.getRecipe(index); }
+
     //removes recipe by specified recipe
     public void removeRecipe(Recipe recipe){
         recipes.removeRecipe(recipe);
@@ -129,6 +133,9 @@ public class Control{
 
     public void setHolder(FoodItem newItem) { holder = newItem; }
     public FoodItem getHolder() { return holder; }
+
+    public void setHolderRecipe(Recipe newRec){ holderRec = newRec;}
+    public Recipe getHolderRecipe(){return holderRec;}
 
  //FoodItem(String name, int quantity, int month, int day, int year)
  //public void 

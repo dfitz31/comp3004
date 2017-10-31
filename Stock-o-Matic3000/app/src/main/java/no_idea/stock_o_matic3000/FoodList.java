@@ -24,7 +24,7 @@ public class FoodList{
     }
  
     //gets the whole list of food items
-    public ArrayList getItems(){
+    public ArrayList<FoodItem> getItems(){
         return foodItems;
     }
  

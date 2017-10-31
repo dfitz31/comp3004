@@ -63,20 +63,14 @@ public class Recipe{
          ingredients.removeItem(itemNum);
      }
 
-     //adds an instruction
-     /* public void addInstruction(String instruction){
-         instructions.add(instruction);
+     public String[] ingredientsToArray(){
+         ArrayList<String> str = new ArrayList();
+         int counter = 0;
+         str.add("Add Ingredient");
+         for(FoodItem item: ingredients.getItems()){
+             str.add("#" + numberOfIngredients.get(counter).intValue() + " " + item.getName());
+             counter++;
+         }
+         return str.toArray(new String[ingredients.getSize()]);
      }
-
-     //gets all instructions
-     public ArrayList getInstructions(){
-         return instructions;
-     }
-
-     //gets specific instruction
-     public String getInstruction(int instrucNum){
-         return instructions.get(instrucNum);
-     }
-
-     //sets an instruction (for editing instructions)*/
 }
