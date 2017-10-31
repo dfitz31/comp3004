@@ -41,7 +41,6 @@ public class ViewItems extends BaseActivity {
                                     int position, long id) {
                 Intent newActivity;
                 int itemPosition     = position;
-                control.setHolder(control.getFoodItem(3));
 
                 if (itemPosition == 0) {
                     newActivity = new Intent(ViewItems.this, AddItem.class);

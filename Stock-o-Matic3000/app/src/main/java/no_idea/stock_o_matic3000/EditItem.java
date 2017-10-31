@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 public class EditItem extends BaseActivity {
 
-
+    FoodItem holder;
 
 
 
@@ -20,15 +20,16 @@ public class EditItem extends BaseActivity {
         final EditText amountField = (EditText) findViewById(R.id.amount);
         final EditText expDateField = (EditText) findViewById(R.id.expDate);
 
-        nameField.setText(control.getHolder().getName());
-        amountField.setText(control.getHolder().getQuantity() + "");
-        expDateField.setText(control.getHolder().getDate());
+        holder = control.getHolder();
+        nameField.setText(holder.getName());
+        amountField.setText(holder.getQuantity() + "");
+        expDateField.setText(holder.getDate());
 
 
 
     }
 
-    protected void submit(View button){
+    public void submit (View button){
 
         Context context = getApplicationContext();
         CharSequence text = "Thing added yo";
