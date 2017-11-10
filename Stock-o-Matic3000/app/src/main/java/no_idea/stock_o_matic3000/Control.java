@@ -1,5 +1,7 @@
 package no_idea.stock_o_matic3000;
 
+import java.util.ArrayList;
+
 public class Control{
     private FoodList foods;
     private RecipeList recipes;
@@ -136,6 +138,16 @@ public class Control{
 
     public void setHolderRecipe(Recipe newRec){ holderRec = newRec;}
     public Recipe getHolderRecipe(){return holderRec;}
+
+    public void eat(int numMeals, Recipe recipe){
+        ArrayList<FoodItem> ingredients = recipe.getIngredients().getItems();
+        int index = 0;
+        for(FoodItem food: ingredients){
+            food.setQuantity(food.getQuantity() - (numMeals *
+                    recipe.getIngredientAmount(index)));
+            index++;
+        }
+    }
 
  //FoodItem(String name, int quantity, int month, int day, int year)
  //public void 

@@ -90,9 +90,21 @@ ListView listView;
     }
 
     public void eat (View button) {
+        final EditText amountField = (EditText) findViewById(R.id.amount);
+        int numMeals = Integer.parseInt(amountField.getText().toString());
+        control.eat(numMeals, control.getHolderRecipe());
+
+        CharSequence text =" Items Revomed From List";
+        Context context = getApplicationContext();
+
+        int duration = Toast.LENGTH_SHORT;
 
 
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
 
+
+        finish();
     }
 
 

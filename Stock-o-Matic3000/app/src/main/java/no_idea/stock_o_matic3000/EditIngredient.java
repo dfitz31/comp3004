@@ -61,7 +61,7 @@ ListView listView;
                         getIngredientIndex(control.getHolder()), Integer.parseInt(str));
                 //control.addFood(name, amount, expDate);
 
-                CharSequence text= control.getHolder().getName() + " Has been Edited";
+                CharSequence text= control.getHolder().getName() + " Has been Updated";
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
 
