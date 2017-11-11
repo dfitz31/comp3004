@@ -32,8 +32,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Table names
     private static final String TABLE_FOOD_LIST = "food_list";
-    private static final String TABLE_RECIPE_LIST = "recipe_list";
-    private static final String TABLE_MEAL_LIST = "meal_list";
+    private static final String TABLE_TAGS_LIST = "tags_list";
+    private static final String TABLE_FOOD_TAGS = "food_tags";
 
     //Common Column Names
     private static final String KEY_ID = "id";
@@ -45,22 +45,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_FOOD_LIST_MONTH = "month";
     private static final String KEY_FOOD_LIST_DAY = "day";
     private static final String KEY_FOOD_LIST_YEAR = "year";
+    private static final String KEY_FOOD_LIST_IDTAG = "idtag";
 
-    //Recipe list table keys
+    //Tag list table keys
+    private static final String KEY_TAGS_LIST_NAME = "name";
 
-    //Table Creat statements
+    //Food tag list table keys
+    private static final String KEY_FOOD_TAGS_FOOD_ID = "food_id";
+    private static final String KEY_FOOD_TAGS_TAG_ID = "tag_id";
+
+    //Table Create statements
     //Food List Table Create Statement
     private static final String CREATE_TABLE_FOOD_LIST = "CREATE TABLE "
             + TABLE_FOOD_LIST + " (" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_FOOD_LIST_ITEM
             + " TEXT," + KEY_FOOD_LIST_QUANTITY + " INTEGER," + KEY_FOOD_LIST_MONTH + " INTEGER,"
-            + KEY_FOOD_LIST_DAY + " INTEGER," + KEY_FOOD_LIST_YEAR + " INTEGER," + KEY_CREATED_AT
-            + " DATETIM" + ")";
+            + KEY_FOOD_LIST_DAY + " INTEGER," + KEY_FOOD_LIST_YEAR + " INTEGER," + KEY_FOOD_LIST_IDTAG + " INTEGER," + KEY_CREATED_AT
+            + " DATETIME" + ")";
 
-    //Recipe List Table Create Statement
-    private static final String CREATE_TABLE_RECIPE_LIST = "CREATE TABLE " + TABLE_RECIPE_LIST;
+    //Tags List Table Create Statement
+    private static final String CREATE_TABLE_TAGS_LIST = "CREATE TABLE " + TABLE_TAGS_LIST + " (" + KEY_ID + " INTEGER PRIMARY KEY,"
+            + KEY_TAGS_LIST_NAME + " TEXT," + KEY_CREATED_AT + " DATETIME" + ")";
 
-    //Meal List Table Create Statement
-    private static final String CREATE_TABLE_MEAL_LIST = "CREATE TABLE " + TABLE_MEAL_LIST;
+    //Food Tags Table Create Statement
+    private static final String CREATE_TABLE_FOOD_TAGS = "CREATE TABLE " + TABLE_FOOD_TAGS + " (" + KEY_ID + " INTEGER PRIMARY KEY,"
+            + KEY_FOOD_TAGS_FOOD_ID + " INTEGER," + KEY_FOOD_TAGS_TAG_ID + " INTEGER," + KEY_CREATED_AT + " DATETIME" + ")";
+
 
 
 
@@ -71,16 +80,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_FOOD_LIST);
-        db.execSQL(CREATE_TABLE_RECIPE_LIST);
-        db.execSQL(CREATE_TABLE_MEAL_LIST);
+        db.execSQL(CREATE_TABLE_TAGS_LIST);
+        db.execSQL(CREATE_TABLE_FOOD_TAGS);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
         // On upgrade drop older tables
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD_LIST);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RECIPE_LIST);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MEAL_LIST);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TAGS_LIST);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD_TAGS);
 
         onCreate(db);
 
