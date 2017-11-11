@@ -96,21 +96,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_FOOD_LIST_DAY, foodItem.getDay());
         values.put(KEY_FOOD_LIST_YEAR, foodItem.getYear());
         values.put(KEY_CREATED_AT, getDateTime());
-<<<<<<< HEAD
-=======
-//<<<<<<< HEAD:Stock-o-Matic3000/app/src/main/java/no_idea/stock_o_matic3000/DatabaseHelper.java
->>>>>>> afd4c79e1957ca5076ef539ac0bd1b60fe6a5c50
+
 
         long singleItem = db.insert(TABLE_FOOD_LIST, null, values);
 
         return singleItem;
-<<<<<<< HEAD
-
-=======
-//=======
-        //+return 0;
-//>>>>>>> 7476b2f3152465e1529abcbfe7c33a58018fe919:Stock-o-Matic3000/app/src/main/java/android/database/sqlite/DatabaseHelper.java
->>>>>>> afd4c79e1957ca5076ef539ac0bd1b60fe6a5c50
     }
 
     //Get a FoodItem from the FoodList
