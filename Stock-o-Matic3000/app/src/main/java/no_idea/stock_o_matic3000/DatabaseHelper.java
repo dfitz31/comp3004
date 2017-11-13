@@ -45,7 +45,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_FOOD_LIST_MONTH = "month";
     private static final String KEY_FOOD_LIST_DAY = "day";
     private static final String KEY_FOOD_LIST_YEAR = "year";
-    private static final String KEY_FOOD_LIST_IDTAG = "idtag";
 
     //Tag list table keys
     private static final String KEY_TAGS_LIST_NAME = "name";
@@ -59,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_FOOD_LIST = "CREATE TABLE "
             + TABLE_FOOD_LIST + " (" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_FOOD_LIST_ITEM
             + " TEXT," + KEY_FOOD_LIST_QUANTITY + " INTEGER," + KEY_FOOD_LIST_MONTH + " INTEGER,"
-            + KEY_FOOD_LIST_DAY + " INTEGER," + KEY_FOOD_LIST_YEAR + " INTEGER," + KEY_FOOD_LIST_IDTAG + " INTEGER," + KEY_CREATED_AT
+            + KEY_FOOD_LIST_DAY + " INTEGER," + KEY_FOOD_LIST_YEAR + " INTEGER," + KEY_CREATED_AT
             + " DATETIME" + ")";
 
     //Tags List Table Create Statement
@@ -149,11 +148,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(c.moveToFirst()){
             do {
                 FoodItem fi = new FoodItem();
-                fi.setName(c.getString(c.getColumnIndex(KEY_ID)));
-                fi.setQuantity(c.getInt(c.getColumnIndex(KEY_ID)));
-                fi.setMonth(c.getInt(c.getColumnIndex(KEY_ID)));
-                fi.setDay(c.getInt(c.getColumnIndex(KEY_ID)));
-                fi.setYear(c.getInt(c.getColumnIndex(KEY_ID)));
+                fi
+                fi.setName(c.getString(c.getColumnIndex(KEY_FOOD_LIST_ITEM)));
+                fi.setQuantity(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_QUANTITY)));
+                fi.setMonth(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_MONTH)));
+                fi.setDay(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_DAY)));
+                fi.setYear(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_YEAR)));
+                fi.setCreatedAt(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
 
                 inventory.add(fi);
             } while (c.moveToNext());
@@ -162,7 +163,45 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return inventory;
     }
 
-    /*Update a FoodItem in the FoodList THIS NEEDS WORK
+    //Get all fooditems under a single "Tag" name
+
+    public List<FoodItem> getAllFoodItemsByTag(String tag_name){
+        List<FoodItem> foodItems = new ArrayList<FoodItem>();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_FOOD_LIST + " fi, "
+                + TABLE_TAGS_LIST + " tl, " + TABLE_FOOD_TAGS + " ft WHERE tl."
+                + KEY_TAGS_LIST_NAME + " = '" + tag_name + "'" + " AND tl." + KEY_ID
+                + " = " + "ft." + KEY_FOOD_TAGS_TAG_ID + " AND fi." + KEY_ID + " = "
+                + "ft." + KEY_FOOD_TAGS_FOOD_ID;
+
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                FoodItem fi = new FoodItem();
+                fi.setId(c.getInt((c.getColumnIndex(KEY_ID))));
+                fi.setName((c.getString(c.getColumnIndex(KEY_FOOD_LIST_ITEM))));
+                fi.setQuantity(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_QUANTITY)));
+                fi.setMonth(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_MONTH)));
+                fi.setDay(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_DAY)));
+                fi.setYear(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_YEAR)));
+                fi.setCreatedAt(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
+
+                // adding to list
+                foodItems.add(fi);
+            } while (c.moveToNext());
+        }
+
+        return foodItems;
+    }
+
+
+    //Update a FoodItem in the FoodList
     public int updateFoodItem(FoodItem foodItem){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -172,10 +211,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_FOOD_LIST_MONTH, foodItem.getMonth());
         values.put(KEY_FOOD_LIST_DAY, foodItem.getDay());
         values.put(KEY_FOOD_LIST_YEAR, foodItem.getYear());
-        values.put(KEY_CREATED_AT, getDateTime());
 
-        return db.update(TABLE_FOOD_LIST, values, KEY_ID + " = ?", new String[] {String.valueOf})
-    }*/
+        //updating row
+        return db.update(TABLE_FOOD_LIST, values, KEY_ID + " = ?", new String[] {String.valueOf(foodItem.getId()})
+    }
 
     //Delete a FoodItem from the FoodList
     public void deleteFoodItem(long foodItem_id){

@@ -6,12 +6,12 @@ public class FoodItem {
  private String name;   //Item Name
  private static int nextKey = 0;
  private int key;
-    private int idTag = 0;
+    private int id = 0;
  private int quantity;  //Item Quantity
  private int month;     //Expiry Date Month
  private int day;       //Expiry Date Day
- private int year;      //Expiry Date Year
-  
+ private int year; //Expiry Date Year
+ private String createdAt;
  
  //Default Constructor to initialize variables
   public FoodItem() {
@@ -84,9 +84,9 @@ public class FoodItem {
     this.year = year;
   }
 
-  public void setIdTag(int idTag) {this.idTag = idTag;}
+  public void setId(int id) {this.id = id;}
 
-  public int getIdTag() {return this.idTag; }
+  public int getId() {return this.id; }
   
   //Year getter
   public int getYear(){
@@ -113,5 +113,9 @@ public class FoodItem {
   public String getDate(){
       return getDay() + "/" + getMonth() + "/" + getYear();
   }
+
+  public String getCreatedAt(){ return createdAt; }
+
+  public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
   
 }

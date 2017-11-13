@@ -1,0 +1,4 @@
+﻿Nov 5th - Nov. 11th
+* Editing of some classes in order to work with SQLite Database storage
+* Editing and addition of methods to SQLiteDatabaseHelper class, further work needs to be done.
+Total Time: 4 Hours
