@@ -10,7 +10,8 @@ import java.util.*;
  *********************************/
 
 public class Recipe{
-     private String name;
+
+    private String name;
      private FoodList ingredients; //list of required ingredients
      private ArrayList<Integer> numberOfIngredients;    //Contains the required number of each ingredient
      private Boolean hasAllItems;   //if the recipe has all the ingredients or not (f is no)

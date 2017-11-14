@@ -86,7 +86,7 @@ public class FoodItem {
 
   public void setId(int id) {this.id = id;}
 
-  public int getId() {return this.id; }
+  public int getId() {return this.id;}
   
   //Year getter
   public int getYear(){

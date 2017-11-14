@@ -11,13 +11,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.nfc.Tag;
 import android.util.Log;
-
-
-/**
- * Created by firef on 2017-10-24.
- */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -106,9 +100,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_CREATED_AT, getDateTime());
 
 
-        long singleItem = db.insert(TABLE_FOOD_LIST, null, values);
+        long foodItem_id = db.insert(TABLE_FOOD_LIST, null, values);
+        for (long tag_id : tag_ids) {
+            createFoodTag(foodItem_id, tag_id);
+        }
 
-        return singleItem;
+        return foodItem_id;
     }
 
     //Get a FoodItem from the FoodList
@@ -148,7 +145,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(c.moveToFirst()){
             do {
                 FoodItem fi = new FoodItem();
-                fi
                 fi.setName(c.getString(c.getColumnIndex(KEY_FOOD_LIST_ITEM)));
                 fi.setQuantity(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_QUANTITY)));
                 fi.setMonth(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_MONTH)));
@@ -212,8 +208,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_FOOD_LIST_DAY, foodItem.getDay());
         values.put(KEY_FOOD_LIST_YEAR, foodItem.getYear());
 
-        //updating row
-        return db.update(TABLE_FOOD_LIST, values, KEY_ID + " = ?", new String[] {String.valueOf(foodItem.getId()})
+        return db.update(TABLE_FOOD_LIST, values, KEY_ID + " = ?", new String[] {String.valueOf(foodItem.getId())});
     }
 
     //Delete a FoodItem from the FoodList
@@ -222,12 +217,115 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.delete(TABLE_FOOD_LIST, KEY_ID + " = ?", new String[] { String.valueOf(foodItem_id)});
     }
 
+    //Creating a tag
+    public long createTag(Tag tag){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(KEY_TAGS_LIST_NAME, tag.getTagName());
+        values.put(KEY_CREATED_AT, getDateTime());
+        long tag_id = db.insert(TABLE_TAGS_LIST, null, values);
+
+        return tag_id;
+
+    }
+
+    //Getting all tag names
+    public List<Tag> getAllTags() {
+        List<Tag> tags = new ArrayList<Tag>();
+        String selectQuery = "SELECT  * FROM " + TABLE_TAGS_LIST;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c.moveToFirst()) {
+            do {
+                Tag t = new Tag();
+                t.setId(c.getInt((c.getColumnIndex(KEY_ID))));
+                t.setTagName(c.getString(c.getColumnIndex(KEY_TAGS_LIST_NAME)));
+
+                tags.add(t);
+            } while (c.moveToNext());
+        }
+        return tags;
+    }
+
+    //Updating a tag
+    public int updateTag(Tag tag) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_TAGS_LIST_NAME, tag.getTagName());
+
+        // updating row
+        return db.update(TABLE_TAGS_LIST, values, KEY_ID + " = ?",
+                new String[] { String.valueOf(tag.getId()) });
+    }
+
+    //Delete tag and foodItems under a tag name
+    public void deleteTag(Tag tag, boolean should_delete_all_tag_todos) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        //Check if food items are to be deleted
+        if (should_delete_all_tag_todos) {
+            List<FoodItem> allTagFoodItems = getAllFoodItemsByTag(tag.getTagName());
+            //Delete the food items
+            for (FoodItem fi: allTagFoodItems) {
+                deleteFoodItem(fi.getId());
+            }
+        }
+        //Delete the tag
+        db.delete(TABLE_TAGS_LIST, KEY_ID + " = ?",
+                new String[] { String.valueOf(tag.getId())});
+    }
+
+    //Assign a tag to a FoodItem
+
+    public long createFoodTag(long foodItem_id, long tag_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_FOOD_TAGS_FOOD_ID, foodItem_id);
+        values.put(KEY_FOOD_TAGS_TAG_ID, tag_id);
+        values.put(KEY_CREATED_AT, getDateTime());
+
+        long id = db.insert(TABLE_FOOD_TAGS, null, values);
+
+        return id;
+    }
+
+
+
+    //Updating a FoodItem tag
+    public int updateFoodTag(long id, long tag_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_FOOD_TAGS_TAG_ID, tag_id);
+
+        return db.update(TABLE_FOOD_LIST, values, KEY_ID + " = ?",
+                new String[] { String.valueOf(id) });
+    }
+
+    //Delete a FoodItem tag
+    public void deleteFoodTag(long id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_FOOD_LIST, KEY_ID + " = ?",
+                new String[] { String.valueOf(id) });
+    }
+
+
     //Close the Database connection
     public void closeDB() {
         SQLiteDatabase db = this.getReadableDatabase();
         if (db != null && db.isOpen())
             db.close();
         }
+
+
 
 
     private String getDateTime(){
