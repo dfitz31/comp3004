@@ -6,6 +6,7 @@ public class FoodItem {
  private String name;   //Item Name
  private static int nextKey = 0;
  private int key;
+    private int idTag = 0;
  private int quantity;  //Item Quantity
  private int month;     //Expiry Date Month
  private int day;       //Expiry Date Day
@@ -82,6 +83,10 @@ public class FoodItem {
   public void setYear(int year){
     this.year = year;
   }
+
+  public void setIdTag(int idTag) {this.idTag = idTag;}
+
+  public int getIdTag() {return this.idTag; }
   
   //Year getter
   public int getYear(){
