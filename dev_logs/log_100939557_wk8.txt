@@ -1,0 +1,8 @@
+﻿Week 8 - November 12th-18th
+        
+* Database methods completed, subject to testing
+* New class developed to aid Database function called “Tag” this provides a new tag object which is used by the database to differentiate between various food lists (Main List, Recipes, etc)
+* Worked on documentation explaining the architecture and design of the project.
+
+
+Total Time: 6 hours

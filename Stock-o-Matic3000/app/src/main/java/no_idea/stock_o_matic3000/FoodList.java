@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 public class FoodList{
-    private int size;//number of items in the list
+    private int size; //number of items in the list
     private ArrayList<FoodItem> foodItems;
  
     public FoodList(){
