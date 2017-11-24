@@ -3,11 +3,16 @@ package no_idea.stock_o_matic3000;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import java.util.ArrayList;
 
 public class BaseActivity extends Activity {
 
     protected static Control control = new Control();
     DatabaseHelper db;
+
+    //For use in extended classes
+    Tag mainList = new Tag("mainList");
+    long mainListTagId;
 
 
 
@@ -16,6 +21,18 @@ public class BaseActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = new DatabaseHelper(getApplicationContext());
+
+
+        //Copying data from Database to control class variables.
+        ArrayList<FoodItem> toCopy = db.getAllFoodItemsByTag("mainList");
+        FoodList foods = control.getMainList();
+
+
+        for(int i = 0; i< toCopy.size(); i++){
+            foods.addItem(toCopy.get(i));
+        }
+
+        control.setMainList(foods);
 
 
 
@@ -44,6 +61,7 @@ public class BaseActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        db.closeDB();
 
 
     }

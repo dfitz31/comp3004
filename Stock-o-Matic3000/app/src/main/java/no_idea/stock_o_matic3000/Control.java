@@ -149,6 +149,11 @@ public class Control{
         }
     }
 
+    public FoodList getMainList() { return this.foods; }
+
+    public void setMainList(FoodList foods){
+        this.foods = foods;
+    }
  //FoodItem(String name, int quantity, int month, int day, int year)
  //public void 
 

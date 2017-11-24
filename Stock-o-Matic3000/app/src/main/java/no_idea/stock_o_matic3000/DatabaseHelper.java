@@ -132,8 +132,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Fetch all FoodItems in FoodList
-    public List<FoodItem> getAllFoodItems(){
-        List<FoodItem> inventory = new ArrayList<FoodItem>();
+    public ArrayList<FoodItem> getAllFoodItems(){
+        ArrayList<FoodItem> inventory = new ArrayList<FoodItem>();
         String selectQuery = "SELECT * FROM " +  TABLE_FOOD_LIST;
 
         Log.e(LOG, selectQuery);
@@ -145,6 +145,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(c.moveToFirst()){
             do {
                 FoodItem fi = new FoodItem();
+                fi.setId(c.getInt((c.getColumnIndex(KEY_ID))));
                 fi.setName(c.getString(c.getColumnIndex(KEY_FOOD_LIST_ITEM)));
                 fi.setQuantity(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_QUANTITY)));
                 fi.setMonth(c.getInt(c.getColumnIndex(KEY_FOOD_LIST_MONTH)));
@@ -161,8 +162,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Get all fooditems under a single "Tag" name
 
-    public List<FoodItem> getAllFoodItemsByTag(String tag_name){
-        List<FoodItem> foodItems = new ArrayList<FoodItem>();
+    public ArrayList<FoodItem> getAllFoodItemsByTag(String tag_name){
+        ArrayList<FoodItem> foodItems = new ArrayList<FoodItem>();
 
         String selectQuery = "SELECT  * FROM " + TABLE_FOOD_LIST + " fi, "
                 + TABLE_TAGS_LIST + " tl, " + TABLE_FOOD_TAGS + " ft WHERE tl."
@@ -232,8 +233,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Getting all tag names
-    public List<Tag> getAllTags() {
-        List<Tag> tags = new ArrayList<Tag>();
+    public ArrayList<Tag> getAllTags() {
+        ArrayList<Tag> tags = new ArrayList<Tag>();
         String selectQuery = "SELECT  * FROM " + TABLE_TAGS_LIST;
 
         Log.e(LOG, selectQuery);
