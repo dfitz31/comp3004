@@ -10,10 +10,6 @@ public class BaseActivity extends Activity {
     protected static Control control = new Control();
     DatabaseHelper db;
 
-    //For use in extended classes
-    Tag mainList = new Tag("mainList");
-    long mainListTagId;
-
 
 
 
@@ -24,20 +20,11 @@ public class BaseActivity extends Activity {
 
 
         //Copying data from Database to control class variables.
-        ArrayList<FoodItem> toCopy = db.getAllFoodItemsByTag("mainList");
+        ArrayList<FoodItem> toCopy = db.getMainList();
         FoodList foods = control.getMainList();
-
-
-        for(int i = 0; i< toCopy.size(); i++){
-            foods.addItem(toCopy.get(i));
-        }
+        foods.setItems(toCopy);
 
         control.setMainList(foods);
-
-
-
-
-
     }
 
 

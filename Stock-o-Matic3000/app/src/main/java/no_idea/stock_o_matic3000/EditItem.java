@@ -45,7 +45,7 @@ public class EditItem extends BaseActivity {
 
         control.editFood(control.getHolder(), name, amount, expDate);
 
-        /*//The following code is for the database
+        //The following code is for the database
         int d = 0;
         int m = 0;
         int y = 0;
@@ -65,8 +65,8 @@ public class EditItem extends BaseActivity {
         //create and add new item to Database
         FoodItem toAdd = new FoodItem(name, Integer.parseInt(amount), d, m, y);
 
-        db.updateFoodItem(toAdd);
-        //Item should now be updated in both control list and Database*/
+        db.updateMainListEntry(toAdd);
+        //Item should now be updated in both control list and Database
 
         CharSequence text = name + " was Updated";
 

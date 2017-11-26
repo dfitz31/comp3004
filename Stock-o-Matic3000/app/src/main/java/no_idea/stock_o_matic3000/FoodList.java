@@ -27,6 +27,9 @@ public class FoodList{
     public ArrayList<FoodItem> getItems(){
         return foodItems;
     }
+
+    //set entire list of items
+    public void setItems(ArrayList<FoodItem> foodItems){ this.foodItems = foodItems; }
  
     //adds an item
     public void addItem(FoodItem item){

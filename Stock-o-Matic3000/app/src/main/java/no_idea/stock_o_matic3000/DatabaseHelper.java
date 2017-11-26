@@ -28,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_FOOD_LIST = "food_list";
     private static final String TABLE_TAGS_LIST = "tags_list";
     private static final String TABLE_FOOD_TAGS = "food_tags";
+    private static final String TABLE_MAIN_LIST = "main_list";
 
     //Common Column Names
     private static final String KEY_ID = "id";
@@ -47,6 +48,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_FOOD_TAGS_FOOD_ID = "food_id";
     private static final String KEY_FOOD_TAGS_TAG_ID = "tag_id";
 
+    //Main List table keys
+    private static final String KEY_MAIN_LIST_ITEM = "item";
+    private static final String KEY_MAIN_LIST_QUANTITY = "quantity";
+    private static final String KEY_MAIN_LIST_MONTH = "month";
+    private static final String KEY_MAIN_LIST_DAY = "day";
+    private static final String KEY_MAIN_LIST_YEAR = "year";
+
     //Table Create statements
     //Food List Table Create Statement
     private static final String CREATE_TABLE_FOOD_LIST = "CREATE TABLE "
@@ -63,6 +71,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_FOOD_TAGS = "CREATE TABLE " + TABLE_FOOD_TAGS + " (" + KEY_ID + " INTEGER PRIMARY KEY,"
             + KEY_FOOD_TAGS_FOOD_ID + " INTEGER," + KEY_FOOD_TAGS_TAG_ID + " INTEGER," + KEY_CREATED_AT + " DATETIME" + ")";
 
+    //Main list Table Create Statement
+    private static final String CREATE_TABLE_MAIN_LIST = "CREATE TABLE "
+            + TABLE_MAIN_LIST + " (" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_MAIN_LIST_ITEM
+            + " TEXT," + KEY_MAIN_LIST_QUANTITY + " INTEGER," + KEY_MAIN_LIST_MONTH + " INTEGER,"
+            + KEY_MAIN_LIST_DAY + " INTEGER," + KEY_MAIN_LIST_YEAR + " INTEGER," + KEY_CREATED_AT
+            + " DATETIME" + ")";
+
 
 
 
@@ -75,6 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_FOOD_LIST);
         db.execSQL(CREATE_TABLE_TAGS_LIST);
         db.execSQL(CREATE_TABLE_FOOD_TAGS);
+        db.execSQL(CREATE_TABLE_MAIN_LIST);
     }
 
     @Override
@@ -83,8 +99,71 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD_LIST);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TAGS_LIST);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD_TAGS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MAIN_LIST);
 
         onCreate(db);
+
+    }
+
+    //Create an entry in the main list
+    public void createMainListEntry(FoodItem foodItem){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(KEY_MAIN_LIST_ITEM, foodItem.getName());
+        values.put(KEY_MAIN_LIST_QUANTITY, foodItem.getQuantity());
+        values.put(KEY_MAIN_LIST_MONTH, foodItem.getMonth());
+        values.put(KEY_MAIN_LIST_DAY, foodItem.getDay());
+        values.put(KEY_MAIN_LIST_YEAR, foodItem.getYear());
+        values.put(KEY_CREATED_AT, getDateTime());
+
+        db.insert(TABLE_MAIN_LIST, null, values);
+
+    }
+
+    //Get entire main list
+    public ArrayList<FoodItem> getMainList(){
+
+        ArrayList<FoodItem> inventory = new ArrayList<FoodItem>();
+        String selectQuery = "SELECT * FROM " +  TABLE_MAIN_LIST;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        //Loop through all rows and add values to list
+        if(c.moveToFirst()){
+            do {
+                FoodItem fi = new FoodItem();
+                fi.setId(c.getInt((c.getColumnIndex(KEY_ID))));
+                fi.setName(c.getString(c.getColumnIndex(KEY_MAIN_LIST_ITEM)));
+                fi.setQuantity(c.getInt(c.getColumnIndex(KEY_MAIN_LIST_QUANTITY)));
+                fi.setMonth(c.getInt(c.getColumnIndex(KEY_MAIN_LIST_MONTH)));
+                fi.setDay(c.getInt(c.getColumnIndex(KEY_MAIN_LIST_DAY)));
+                fi.setYear(c.getInt(c.getColumnIndex(KEY_MAIN_LIST_YEAR)));
+                fi.setCreatedAt(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
+
+                inventory.add(fi);
+            } while (c.moveToNext());
+        }
+
+        return inventory;
+
+    }
+
+    public int updateMainListEntry(FoodItem foodItem){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_MAIN_LIST_ITEM, foodItem.getName());
+        values.put(KEY_MAIN_LIST_QUANTITY, foodItem.getQuantity());
+        values.put(KEY_MAIN_LIST_MONTH, foodItem.getMonth());
+        values.put(KEY_MAIN_LIST_DAY, foodItem.getDay());
+        values.put(KEY_MAIN_LIST_YEAR, foodItem.getYear());
+
+        return db.update(TABLE_MAIN_LIST, values, KEY_ID + " = ?", new String[] {String.valueOf(foodItem.getId())});
 
     }
 
@@ -324,7 +403,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         if (db != null && db.isOpen())
             db.close();
-        }
+    }
 
 
 
