@@ -29,7 +29,10 @@ public class FoodList{
     }
 
     //set entire list of items
-    public void setItems(ArrayList<FoodItem> foodItems){ this.foodItems = foodItems; }
+    public void setItems(ArrayList<FoodItem> foodItems){
+        this.foodItems = foodItems;
+        this.size = foodItems.size();
+    }
  
     //adds an item
     public void addItem(FoodItem item){

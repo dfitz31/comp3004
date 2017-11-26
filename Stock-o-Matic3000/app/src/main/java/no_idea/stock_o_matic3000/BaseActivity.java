@@ -23,7 +23,6 @@ public class BaseActivity extends Activity {
         ArrayList<FoodItem> toCopy = db.getMainList();
         FoodList foods = control.getMainList();
         foods.setItems(toCopy);
-
         control.setMainList(foods);
     }
 

@@ -6,12 +6,12 @@ public class FoodItem {
  private String name;   //Item Name
  private static int nextKey = 0;
  private int key;
-    private int id = 0;
  private int quantity;  //Item Quantity
  private int month;     //Expiry Date Month
  private int day;       //Expiry Date Day
  private int year; //Expiry Date Year
  private String createdAt;
+    private int id;
  
  //Default Constructor to initialize variables
   public FoodItem() {
