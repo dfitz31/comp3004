@@ -1,15 +1,22 @@
 package no_idea.stock_o_matic3000;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends BaseActivity {
 
@@ -59,6 +66,13 @@ public class MainActivity extends BaseActivity {
 
                 }
 
+                else if (itemPosition == 2){
+
+                    Intent newActivity = new Intent(MainActivity.this, ListGen.class);
+                    startActivity(newActivity);
+
+                }
+
                 else {
 
                     Intent newActivity = new Intent(MainActivity.this, ViewItems.class);
@@ -73,13 +87,20 @@ public class MainActivity extends BaseActivity {
     protected void onStart(){
         super.onStart();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        //Alarm Manager code not working, will try to debug
+
+        /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
         listView.setAdapter(adapter);
 
+        AlarmManager alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        // set for 5 seconds later
+        alarmMgr.set(AlarmManager.RTC_WAKEUP, Calendar.getInstance().getTimeInMillis() + 5000, alarmIntent);*/
     }
 
-    protected void onStop(){
+    protected void onStop() {
         super.onStop();
 
     }
@@ -93,7 +114,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
 
     }
 

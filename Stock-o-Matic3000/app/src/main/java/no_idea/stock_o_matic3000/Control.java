@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Control{
     private FoodList foods;
+    private FoodList shopping;
     private RecipeList recipes;
     private FoodItem holder;
     private Recipe holderRec;
@@ -11,6 +12,7 @@ public class Control{
     public Control(){
         foods = new FoodList();
         recipes = new RecipeList();
+        shopping = new FoodList();
         generate();
         holder = foods.getItem(1);
     }
@@ -132,6 +134,7 @@ public class Control{
     public String[] listMealString(){
         return recipes.getRecipeNames();
     }
+    public String[] listShoppingString() { return shopping.toStringArray(); }
 
     public void setHolder(FoodItem newItem) { holder = newItem; }
     public FoodItem getHolder() { return holder; }
@@ -146,6 +149,23 @@ public class Control{
             food.setQuantity(food.getQuantity() - (numMeals *
                     recipe.getIngredientAmount(index)));
             index++;
+        }
+    }
+
+    public void generateShoppingList(){
+
+        //remove items that have had their quantity increased
+        for(int i=0; i < shopping.getSize(); i++){
+            if(shopping.getItem(i).getQuantity() != 0){
+                shopping.removeItem(shopping.getItem(i));
+            }
+        }
+
+        //Add all new items to the shopping list
+        for(int i=0; i < foods.getSize(); i++){
+            if(foods.getItem(i).getQuantity() == 0 && !shopping.contains(foods.getItem(i))){
+                shopping.addItem(foods.getItem(i));
+            }
         }
     }
 

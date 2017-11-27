@@ -40,7 +40,9 @@ public class FoodList{
         foodItems.remove(item);
         setSize();
     }
- 
+
+    public boolean contains(FoodItem item) { return foodItems.contains(item); }
+
     //removes by position in the list
     public void removeItem(int index){
         foodItems.remove(index);
