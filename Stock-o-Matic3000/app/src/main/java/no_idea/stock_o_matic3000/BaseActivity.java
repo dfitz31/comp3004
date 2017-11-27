@@ -47,6 +47,14 @@ public class BaseActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        db.onUpgrade(db.getDB(),1,2);
+
+        ArrayList<FoodItem> mainListInsert = control.getMainList().getItems();
+
+        for(int i = 0; i < mainListInsert.size(); i++){
+            db.createMainListEntry(mainListInsert.get(i));
+        }
+
         db.closeDB();
 
 

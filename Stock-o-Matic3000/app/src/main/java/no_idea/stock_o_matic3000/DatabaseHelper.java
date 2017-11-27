@@ -405,6 +405,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
     }
 
+    public SQLiteDatabase getDB() { return this.getWritableDatabase(); }
+
 
 
 
