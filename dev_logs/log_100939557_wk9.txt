@@ -1,0 +1,8 @@
+﻿Nov. 19th - Nov 24th
+* Integration of Database into Application begun
+* New table added to Database in order to help save and load FoodItems from the main FoodList
+* Database made to be able to save and load FoodItems not in recipes.
+* App tested in order to determine if FoodItems could be saved, test were successful
+
+
+Total Time: 5.5 hours
