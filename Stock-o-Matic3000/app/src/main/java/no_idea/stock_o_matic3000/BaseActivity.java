@@ -65,11 +65,11 @@ public class BaseActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-<<<<<<< HEAD
+
         /*db.onUpgrade(db.getDB(),1,2);
-=======
+
         db.onUpgrade(db.getDB(),1,2);
->>>>>>> 4d72257f48175e365698f8f522ceb1f19433db53
+
 
         //Insert MainList values into Database
         ArrayList<FoodItem> mainListInsert = control.getMainList().getItems();
@@ -77,12 +77,9 @@ public class BaseActivity extends Activity {
         for(int i = 0; i < mainListInsert.size(); i++){
             db.createMainListEntry(mainListInsert.get(i));
         }
-
-<<<<<<< HEAD
         //Insert Recipe Values into Database
-=======
-        /*//Insert Recipe Values into Database
->>>>>>> 4d72257f48175e365698f8f522ceb1f19433db53
+        //Insert Recipe Values into Database
+
         ArrayList<Recipe> recipeListInsert = control.getRecipeList().getRecipes();
 
         for(int j = 0; j < recipeListInsert.size(); j++){
