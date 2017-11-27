@@ -60,6 +60,14 @@ ListView listView;
 
                 control.getHolderRecipe().addIngredient(control.getFoodItem(position - 1),
                         Integer.parseInt(amount));
+
+                /*
+                //Following code is for Database
+                FoodItem newItem = control.getFoodItem(position - 1);
+                newItem.setQuantity(Integer.parseInt(amount));
+                db.createFoodListEntry(newItem, new long[] {control.getHolderRecipe().getRecipeId() });
+                */
+
                 //control.addFood(name, amount, expDate);
 
                 CharSequence text= control.getHolder().getName() + " Has been added";

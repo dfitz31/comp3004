@@ -14,7 +14,8 @@ public class Recipe{
     private String name;
      private FoodList ingredients; //list of required ingredients
      private ArrayList<Integer> numberOfIngredients;    //Contains the required number of each ingredient
-     private Boolean hasAllItems;   //if the recipe has all the ingredients or not (f is no)
+     private Boolean hasAllItems;//if the recipe has all the ingredients or not (f is no)
+    private long recipeId;
 
      /*********************************
       *                               *
@@ -98,4 +99,8 @@ public class Recipe{
          }
          return str.toArray(new String[ingredients.getSize()]);
      }
+
+     public void setRecipeId(long recipeId) { this.recipeId = recipeId; }
+
+    public long getRecipeId(){ return this.recipeId; }
 }

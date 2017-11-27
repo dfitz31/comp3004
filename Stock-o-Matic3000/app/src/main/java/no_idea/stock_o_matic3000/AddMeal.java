@@ -85,6 +85,15 @@ ListView listView;
         control.getHolderRecipe().setName(name);
         control.addRecipe(control.getHolderRecipe());
 
+        /*
+        //The Following code is for the database
+        String recipeName = control.getHolderRecipe().getName();
+        Tag recipeTag = new Tag(recipeName);
+
+        long recipeId = db.createTag(recipeTag);
+        control.getHolderRecipe().setRecipeId(recipeId);
+        */
+
 
         CharSequence text = name + " meal was Added";
         Context context = getApplicationContext();

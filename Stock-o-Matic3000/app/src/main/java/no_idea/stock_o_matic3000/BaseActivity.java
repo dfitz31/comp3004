@@ -16,6 +16,7 @@ public class BaseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         db = new DatabaseHelper(getApplicationContext());
 
 
@@ -25,8 +26,8 @@ public class BaseActivity extends Activity {
         foods.setItems(mainList);
         control.setMainList(foods);
 
-        /*//Copying Recipe List data from Database to control class variables.
-        ArrayList<Tag> recipeNames = db.getAllTags();
+        //Copying Recipe List data from Database to control class variables.
+        /*ArrayList<Tag> recipeNames = db.getAllTags();
         RecipeList recipeList = new RecipeList();
 
         for(int i = 0; i < recipeNames.size(); i++){
@@ -41,6 +42,7 @@ public class BaseActivity extends Activity {
         }
 
         control.setRecipeList(recipeList);*/
+
 
     }
 
