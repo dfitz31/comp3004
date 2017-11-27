@@ -154,6 +154,10 @@ public class Control{
     public void setMainList(FoodList foods){
         this.foods = foods;
     }
+
+    public RecipeList getRecipeList() { return this.recipes; }
+
+    public void setRecipeList(RecipeList recipes) { this.recipes = recipes; }
  //FoodItem(String name, int quantity, int month, int day, int year)
  //public void 
 
