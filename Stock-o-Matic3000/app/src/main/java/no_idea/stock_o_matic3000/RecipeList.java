@@ -45,4 +45,6 @@ public class RecipeList{
     public void removeRecipe(int recipe){
         recipes.remove(recipe);
     }
+
+    public ArrayList<Recipe> getRecipes(){ return this.recipes; }
 }
