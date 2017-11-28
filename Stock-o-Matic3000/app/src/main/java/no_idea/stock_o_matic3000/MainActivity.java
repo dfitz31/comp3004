@@ -35,6 +35,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new DatabaseHelper(getApplicationContext());
         //Copying Main List data from Database to control class variables.
         ArrayList<FoodItem> mainList = db.getMainList();
         FoodList foods = new FoodList();
@@ -123,6 +124,16 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
+        db.onUpgrade(db.getDB(), 1, 1);
+
+        ArrayList<FoodItem> mainListSave = control.getMainList().getItems();
+
+        for(int i = 0; i < mainListSave.size(); i ++){
+            db.createMainListEntry(mainListSave.get(i));
+        }
+
+        db.closeDB();
 
     }
 
