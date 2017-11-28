@@ -1,0 +1,5 @@
+Week 7(Oct 30th- Nov 3rd)
+- Revised the ListView for xml
+- Added activities for Add, Edit and Viewing Meals 
+- Added XML for above
+- Got demo workiing 

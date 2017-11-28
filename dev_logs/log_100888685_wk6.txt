@@ -1,0 +1,3 @@
+Week 6(Oct 23rd-27)
+- Created Getters/Setters for ui items to be passed/read from control with Ian
+
