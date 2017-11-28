@@ -17,7 +17,7 @@ public class BaseActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = new DatabaseHelper(getApplicationContext());
-        
+
     }
 
 
@@ -41,6 +41,16 @@ public class BaseActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
+        db.onUpgrade(db.getDB(), 1, 1);
+
+        ArrayList<FoodItem> mainListSave = control.getMainList().getItems();
+
+        for(int i = 0; i < mainListSave.size(); i ++){
+            db.createMainListEntry(mainListSave.get(i));
+        }
+
+        db.closeDB();
 
     }
 
