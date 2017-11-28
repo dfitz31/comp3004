@@ -68,8 +68,8 @@ ListView listView;
                 */
 
                 //control.addFood(name, amount, expDate);
-
-                CharSequence text= control.getHolder().getName() + " Has been added";
+                String name = control.getFoodItem(position - 1).getName();
+                CharSequence text= name + " Has been added";
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
 
@@ -131,7 +131,7 @@ ListView listView;
                         Integer.parseInt(amount));
                 //control.addFood(name, amount, expDate);
 
-                CharSequence text = control.getHolder().getName() + " Has been added";
+                CharSequence text = control.getFoodItem(position - 1).getName() + " Has been added";
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
 
