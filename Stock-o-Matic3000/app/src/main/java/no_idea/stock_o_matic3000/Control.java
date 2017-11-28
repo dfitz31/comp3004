@@ -172,7 +172,15 @@ public class Control{
             }
         }
 
-        //Add all new items to the shopping list
+        //Remove items from shopping that aren't in Main Food list, trying to fix the error of duplicates
+        for(int i=0; i < shopping.getSize(); i++) {
+            if (shopping.getItem(i).getQuantity() == 0 && !shopping.contains(foods.getItem(i))) {
+                shopping.removeItem(shopping.getItem(i));
+            }
+        }
+
+
+    //Add all new items to the shopping list
         for(int i=0; i < foods.getSize(); i++){
             if(foods.getItem(i).getQuantity() == 0 && !shopping.contains(foods.getItem(i))){
                 shopping.addItem(foods.getItem(i));
