@@ -15,6 +15,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
@@ -33,6 +35,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Copying Main List data from Database to control class variables.
+        ArrayList<FoodItem> mainList = db.getMainList();
+        FoodList foods = new FoodList();
+        foods.setItems(mainList);
+        control.setMainList(foods);
 
 
         setContentView(R.layout.activity_main);

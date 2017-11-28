@@ -58,8 +58,7 @@ ListView listView;
                 String amount = amountField.getText().toString();
                 if (amount.equals("")){amount = "1";}
 
-                control.getHolderRecipe().addIngredient(control.getFoodItem(position - 1),
-                        Integer.parseInt(amount));
+                control.getHolderRecipe().addIngredient(control.getFoodItem(position - 1), Integer.parseInt(amount));
 
                 /*
                 //Following code is for Database

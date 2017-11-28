@@ -1,0 +1,9 @@
+﻿Nov 26th - Nov. 29th
+* New method of saving Main List FoodItems devised and implemented.
+* Tests of new implementation conducted successfully, except items are no longer editable
+* Implementation of saving Recipes devised and implemented.
+* Tests of this implementation conducted, recipes can be saved but app becomes unstable and crashes.
+* Reverted to initial implementation, which only saves items from the Main FoodItem list, as it maintained the ability to edit FoodItems.
+
+
+Total Time: 9 Hours

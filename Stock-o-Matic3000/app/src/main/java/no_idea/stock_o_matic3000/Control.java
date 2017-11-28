@@ -188,7 +188,10 @@ public class Control{
         }
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 049c37a853fa21194d395d662d5a24c31b63ed0f
  //FoodItem(String name, int quantity, int month, int day, int year)
  //public void 
 
