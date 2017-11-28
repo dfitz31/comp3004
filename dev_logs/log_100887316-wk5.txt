@@ -1,0 +1,9 @@
+Week 5 (Oct 16th-20th)
+-    Created the following classes
+     -RecipeList
+-    Expanded functionality on the following classes 
+     -Control
+     -FoodItem
+     -FoodList
+     -Recipe
+

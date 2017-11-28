@@ -1,0 +1,20 @@
+Week 7 (Oct 30th- Nov 3rd)
+-    expanded on the functionality of the following classes:
+     -Control
+     -FoodItem
+     -FoodList
+     -Recipe
+     -RecipeList
+     in order to work more smoothly in the app
+-    Completed helping interfacing between the following Activities and the Control
+     -AddItem
+     -AddMeal
+     -AddIngredient
+     -BaseActivity
+     -EditItem
+     -EditMeal
+     -MainActivity
+     -ViewItems
+     -ViewMeals
+     This allowed the following functions to work for the demo: Adding Items, Editing items, Adding meals,
+     Edditing meals, and viewing both

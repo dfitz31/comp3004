@@ -1,0 +1,2 @@
+Week 6 (Oct 23th-27th)
+-    Began helping interface the Control class with the app activities created by Doug.
