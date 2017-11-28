@@ -62,13 +62,13 @@ public class EditItem extends BaseActivity {
                 y = Integer.parseInt(parts[i]);
             }
         }
-        //create and add new item to Database
+        /*//create and add new item to Database
         FoodItem toAdd = new FoodItem(name, Integer.parseInt(amount), d, m, y);
         int id = control.getHolder().getId();
         toAdd.setId(id);
 
         db.updateMainListEntry(toAdd);
-        //Item should now be updated in both control list and Database
+        //Item should now be updated in both control list and Database*/
 
         CharSequence text = name + " was Updated";
 
