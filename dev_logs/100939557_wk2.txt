@@ -1,8 +1,0 @@
-﻿Week 2 (Sept 25-29)
-
-
-* Divisions of work created
-* Formulated ideas about classes/objects
-* Discussed ideas regarding a class/object to hold information about food items (name, expiry date etc.)
-* Reviewed Java principles regarding classes and object oriented programming
-        (Total time: 5 hours)

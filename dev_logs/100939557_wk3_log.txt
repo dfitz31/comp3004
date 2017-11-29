@@ -1,7 +1,0 @@
-﻿Week 3 (Oct 2nd - Oct 6th)
-
-
-* Created FoodItem class with basic functionalities to build upon later
-* Considered additional methods that may be required in the future
-* Discussed requirements for other classes that have yet to be implemented
-        (Total: 5-6 hours)

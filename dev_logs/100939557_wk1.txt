@@ -1,6 +1,0 @@
-﻿Week 1 (Sept 18th - 22nd)
-* Discussed Ideas for app
-* Reviewed java basics required for later coding
-* Formulated and discussed ideas regarding possible java classes required for project
-* Discussed app name and requirements for app
-        (Total time: 6-7 hours)
