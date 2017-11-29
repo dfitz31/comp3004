@@ -91,10 +91,13 @@ ListView listView;
 
     public void eat (View button) {
         final EditText amountField = (EditText) findViewById(R.id.amount);
-        int numMeals = Integer.parseInt(amountField.getText().toString());
+        String amount = amountField.getText().toString();
+        if (amount.equals("")){amount = "1";}
+        int numMeals = Integer.parseInt(amount);
+        if(numMeals == 0) { numMeals = 1; }
         control.eat(numMeals, control.getHolderRecipe());
 
-        CharSequence text =" Items Revomed From List";
+        CharSequence text =" Items Removed From List";
         Context context = getApplicationContext();
 
         int duration = Toast.LENGTH_SHORT;
